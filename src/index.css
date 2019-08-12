@@ -1,0 +1,65 @@
+html, body, #app {
+  width: 100%;
+  height: 100%;
+}
+
+.wrap {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1;
+  background: #bfbfdb;
+  padding: 30rpx;
+  box-sizing: border-box;
+}
+
+.main .main_cart {
+  width: 100%;
+  height: 250rpx;
+  display: flex;
+  background: #fff;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 15rpx;
+  border-radius: 10rpx;
+}
+
+.main .main_cart .cart_checked {
+  display: flex;
+}
+
+.main .main_cart .cart_checked span {
+  width: 40rpx;
+  height: 40rpx;
+  border: 1px solid #00f;
+  border-radius: 50%;
+}
+
+.main .main_cart Image {
+  width: 200rpx;
+  height: 160rpx;
+  margin: 0 30rpx;
+}
+
+.main .main_cart .cart_cont {
+  display: flex;
+  flex-direction: column;
+}
+
+.main .main_cart .cart_cont p {
+  font-size: 30rpx;
+}
+
+.main .main_cart .cart_box {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer {
+  width: 100%;
+}

@@ -20,6 +20,7 @@ class App extends Component {
 
   config = {
     pages: [
+      'pages/cart/index',
       'pages/index/index'
     ],
     window: {
