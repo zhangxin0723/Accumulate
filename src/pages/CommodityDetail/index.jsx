@@ -60,7 +60,7 @@ class CommodityDetail extends Component {
         </Swiper>
         <View className='detailWrapTit'>
           <View className='detailWrapTitLeft'>
-            <Text className='detailWrapTitMoney'>￥75</Text>
+            <View className='detailWrapTitMoney'>￥<View>75</View></View>
             <Text>73.02</Text>
             <Image src={blackCard} />
           </View>
