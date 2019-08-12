@@ -4,6 +4,7 @@ import { observer, inject } from '@tarojs/mobx'
 import './index.scss'
 import search from '../../img/search.svg'
 import nav from '../../img/nav.svg'
+import Selected from '../components/selected/index'
 
 @inject('counterStore')
 @observer
@@ -75,6 +76,9 @@ class Index extends Component {
             </View>
             <View className='classify_tit'>会员专区</View>
           </View>
+        </View>
+        <View className='good_thing'>
+          <Selected></Selected>
         </View>
       </View>
     )
