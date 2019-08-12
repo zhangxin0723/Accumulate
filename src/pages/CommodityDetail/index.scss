@@ -1,0 +1,61 @@
+.detailWrap {
+  width: 100%;
+  height: 100%;
+  background: salmon;
+  .test-h {
+    width: 100%;
+    height: 640rpx;
+    background: sandybrown;
+    .SwiperItem {
+      width: 100%;
+      height: 640rpx;
+      background: sandybrown;
+      .SwiperBanner {
+        width: 100%;
+        height: 640rpx;
+        image {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+}
+.detailWrapTit{
+    width: 100%;
+    height: 54rpx;
+    background: sandybrown;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 20rpx;
+    box-sizing: border-box;
+    .detailWrapTitLeft{
+        display: flex;
+        Image{
+            width: 34rpx;
+            height: 16rpx;
+        }
+        .detailWrapTitMoney{
+            
+        }
+    }
+}
+.detailLower {
+  width: 100%;
+  height: 100rpx; 
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  text-align: center;
+  line-height: 100rpx;
+  View {
+    flex: 1;
+  }
+  .detailLowerLeft {
+    background: linear-gradient(217deg, #f86367, #fb2579);
+  }
+  .detailLowerRight {
+    background: linear-gradient(217deg, #f86367, #fb2579);
+  }
+}
