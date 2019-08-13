@@ -2,11 +2,11 @@ import Taro, { Component } from '@tarojs/taro'
 import { Provider } from '@tarojs/mobx'
 import Index from './pages/home/index.jsx'
 
+import NavDetail from './pages/navDetail'
+
 import store from './store'
 
 import './app.scss'
-
-console.log(store)
 
 // 如果需要在 h5 环境中开启 React Devtools
 // 取消以下注释：
@@ -19,7 +19,8 @@ class App extends Component {
 
   config = {
     pages: [
-      'pages/home/index'
+      'pages/navDetail/index',
+      'pages/home/index',
     ],
     window: {
       backgroundTextStyle: 'light',
@@ -42,7 +43,7 @@ class App extends Component {
   render () {
     return (
       <Provider store={store}>
-        <Index />
+        <NavDetail />
       </Provider>
     )
   }
