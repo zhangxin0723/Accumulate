@@ -4,15 +4,15 @@
   background: salmon;
   .test-h {
     width: 100%;
-    height: 640rpx;
+    height: 680rpx;
     background: sandybrown;
     .SwiperItem {
       width: 100%;
-      height: 640rpx;
+      height: 680rpx;
       background: sandybrown;
       .SwiperBanner {
         width: 100%;
-        height: 640rpx;
+        height: 680rpx;
         image {
           width: 100%;
           height: 100%;
@@ -21,28 +21,60 @@
     }
   }
 }
-.detailWrapTit{
-    width: 100%;
-    height: 54rpx;
-    background: sandybrown;
+.detailWrapTit {
+  width: 100%;
+  height: 60rpx;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 20rpx;
+  box-sizing: border-box;
+  line-height: 60rpx;
+  .detailWrapTitLeft {
     display: flex;
-    justify-content: space-between;
-    padding-left: 20rpx;
-    box-sizing: border-box;
-    .detailWrapTitLeft{
-        display: flex;
-        Image{
-            width: 34rpx;
-            height: 16rpx;
-        }
-        .detailWrapTitMoney{
-            
-        }
+    image {
+      width: 34rpx;
+      height: 16rpx;
     }
+    .detailWrapTitMoney {
+      display: flex;
+      color: #fc5d7b;
+      .detailWrapTitMoneyOne {
+        font-size: 30rpx;
+      }
+      View {
+        font-size: 40rpx;
+      }
+    }
+    Text {
+      font-size: 26rpx;
+      color: #a97a33;
+      margin-left: 20rpx;
+    }
+    image {
+      margin-top: 30rpx;
+      margin-left: 16rpx;
+    }
+  }
+  .detailWrapTitShare {
+    font-size: 30rpx;
+    color: #fc5d7b;
+    padding: 0 20rpx;
+    border: solid 2rpx #fc5d7b;
+    box-sizing: border-box;
+    border-top-left-radius: 22rpx;
+    border-bottom-left-radius: 22rpx;
+  }
+}
+.detailWrapName{
+  width: 100%;
+  height: 110rpx;
+  background: cadetblue;
+  padding: 10rpx;
+  box-sizing: border-box;
 }
 .detailLower {
   width: 100%;
-  height: 100rpx; 
+  height: 100rpx;
   position: fixed;
   left: 0;
   bottom: 0;
@@ -54,8 +86,10 @@
   }
   .detailLowerLeft {
     background: linear-gradient(217deg, #f86367, #fb2579);
+    color: #fff;
   }
   .detailLowerRight {
     background: linear-gradient(217deg, #f86367, #fb2579);
+    color: #fff;
   }
 }

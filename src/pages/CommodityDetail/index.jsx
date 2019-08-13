@@ -58,13 +58,19 @@ class CommodityDetail extends Component {
             </View>
           </SwiperItem>
         </Swiper>
-        <View className='detailWrapTit'>
-          <View className='detailWrapTitLeft'>
-            <View className='detailWrapTitMoney'>￥<View>75</View></View>
+        <View className="detailWrapTit">
+          <View className="detailWrapTitLeft">
+            <View className="detailWrapTitMoney">
+              <View className="detailWrapTitMoneyOne">￥</View> <View>75</View>
+            </View>
             <Text>73.02</Text>
             <Image src={blackCard} />
           </View>
-          <View>分享</View>
+          <View className='detailWrapTitShare'>分享赚1.49</View>
+        </View>
+        <View className='detailWrapName'>
+          <View>澳洲直邮Swisse钙+维生素D片150粒*2罐</View>
+          <View>快递包邮</View>
         </View>
         <View className="detailLower">
           <View className="detailLowerLeft">分享赚</View>
