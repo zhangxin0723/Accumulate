@@ -4,11 +4,18 @@ import { observer, inject } from '@tarojs/mobx'
 
 import './index.scss'
 import baobao from '../../img/baobao.jpg'
+import svgd from '../../img/椭圆形-为勾选.svg'
+import svg from '../../img/椭圆形-为勾选(1).svg'
 import Cart from '../components/cart'
 @inject('counterStore')
 @observer
 class Index extends Component {
-
+  constructor(props) {
+    super(props)
+    this.state = {
+        flag:false
+    }
+  }
   config = {
     navigationBarTitleText: '购物车'
   }
@@ -27,9 +34,12 @@ class Index extends Component {
 
   componentDidHide () { } 
   checkedAll() {
-      console.log('Alll')
+      this.setState(prevState => ({
+          flag : !prevState.flag
+      }))
   }
   render () {
+      console.log(this.state)
     return (
       <View className='wrap'>
           <View className='main'>
@@ -42,8 +52,9 @@ class Index extends Component {
           </View>
           <View className='cart_footer'>
             <View className='cart_checked'>
-                <View className='cart_span' onClick={() => this.checkedAll()}></View>
-                <View className='cart_spans' onClick={() => this.checkedAll()}></View>
+                <View className='cart_span' onClick={() => this.checkedAll()}>
+                    {this.state.flag === false ? <Image src={svg}></Image> : <Image src={svgd}></Image>}
+                </View>
                 <p>全选</p>
             </View>
             <View className='aggregate'>
