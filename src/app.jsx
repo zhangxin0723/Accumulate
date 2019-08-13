@@ -1,10 +1,12 @@
 import Taro, { Component } from '@tarojs/taro'
 import { Provider } from '@tarojs/mobx'
-import Index from './pages/home'
+import Index from './pages/home/index.jsx'
 
-import counterStore from './store/counter'
+import store from './store'
 
 import './app.scss'
+
+console.log(store)
 
 // 如果需要在 h5 环境中开启 React Devtools
 // 取消以下注释：
@@ -12,9 +14,6 @@ import './app.scss'
 //   require('nerv-devtools')
 // }
 
-const store = {
-  counterStore
-}
 
 class App extends Component {
 

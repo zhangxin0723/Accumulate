@@ -7,7 +7,7 @@ import nav from '../../img/nav.svg'
 import Selected from '../components/selected/index'
 import Listitem from '../components/listItem/index'
 
-@inject('counterStore')
+@inject('home')
 @observer
 class Index extends Component {
 
@@ -18,10 +18,13 @@ class Index extends Component {
   componentWillMount() { }
 
   componentWillReact() {
-    console.log('componentWillReact')
+    
   }
 
-  componentDidMount() { }
+  componentDidMount() { 
+    console.log(this.props,"123123132")
+    this.props.home.getHome()
+  }
 
   componentWillUnmount() { }
 

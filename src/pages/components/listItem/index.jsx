@@ -5,8 +5,8 @@ import { observer, inject } from '@tarojs/mobx'
 import './index.scss'
 import vip from '../../../img/vip.png'
 
-@inject('counterStore')
-@observer
+// @inject('')
+// @observer
 
 class Listitem extends Component {
 
@@ -25,7 +25,6 @@ class Listitem extends Component {
   componentDidHide() { }
 
   render() {
-    const { counterStore: { counter } } = this.props
     return (
       <View className='list_item'>
         <View className='item_img'>

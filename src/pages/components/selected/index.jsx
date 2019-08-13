@@ -6,8 +6,8 @@ import './index.scss'
  
 import more from "../../../img/more.svg"
 
-@inject('counterStore')
-@observer
+// @inject('')
+// @observer
 
 class Selected extends Component {
 
@@ -26,7 +26,6 @@ class Selected extends Component {
   componentDidHide() { } 
 
   render() {
-    const { counterStore: { counter } } = this.props
     return (
       <View className='select'>
         <View className='select_top'>
