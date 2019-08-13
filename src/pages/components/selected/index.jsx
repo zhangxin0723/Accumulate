@@ -38,13 +38,36 @@ class Selected extends Component {
           <View className='tit_cont'><Text>精选好物</Text><Text className='line'></Text><Text className='wait'>等你来抢</Text></View><View className='tit_more'><Image src={more} /></View>
         </View>
         <View className='select_cont'>
-            <View>
-                <View className='cont_item'>
-                  <View></View>
-                  <View></View>
-                  <View className='item_price'></View>
-                </View>
-            </View>
+          <View className='cont_item'>
+            <View className='item_img'></View>
+            <View className='item_cont'></View>
+            <View className='item_price'>￥123</View>
+          </View>
+          <View className='cont_item'>
+            <View className='item_img'></View>
+            <View className='item_cont'></View>
+            <View className='item_price'>￥123</View>
+          </View>
+          <View className='cont_item'>
+            <View className='item_img'></View>
+            <View className='item_cont'></View>
+            <View className='item_price'>￥123</View>
+          </View>
+          <View className='cont_item'>
+            <View className='item_img'></View>
+            <View className='item_cont'></View>
+            <View className='item_price'>￥123</View>
+          </View>
+          <View className='cont_item'>
+            <View className='item_img'></View>
+            <View className='item_cont'></View>
+            <View className='item_price'>￥123</View>
+          </View>
+          <View className='cont_item'>
+            <View className='item_img'></View>
+            <View className='item_cont'></View>
+            <View className='item_price'>￥123</View>
+          </View>
         </View>
       </View>
     )

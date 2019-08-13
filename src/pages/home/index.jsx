@@ -5,6 +5,7 @@ import './index.scss'
 import search from '../../img/search.svg'
 import nav from '../../img/nav.svg'
 import Selected from '../components/selected/index'
+import Listitem from '../components/listItem/index'
 
 @inject('counterStore')
 @observer
@@ -79,6 +80,16 @@ class Index extends Component {
         </View>
         <View className='good_thing'>
           <Selected></Selected>
+          <Selected></Selected>
+          <Selected></Selected>
+        </View>
+        <View className='home_list'>
+          <View className='select_tit'>
+            <View className='tit_cont'><Text>为你精选</Text><Text className='line'></Text><Text className='wait'>等你来抢</Text></View>
+          </View>
+          <View className='list_cont'>
+            <Listitem />
+          </View>
         </View>
       </View>
     )
