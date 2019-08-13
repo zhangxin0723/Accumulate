@@ -1,0 +1,96 @@
+.cont {
+  display: flex;
+  flex-direction: column;
+  width: 92%;
+  margin: 15rpx auto;
+  border-radius: 10rpx;
+  padding: 10rpx;
+  border-bottom: .01rpx solid #f6f6f6;
+  background: #fff;
+}
+
+.cont .overdue {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.cont .overdue .overdue_type {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #c4c5c5;
+  border-radius: 15rpx;
+}
+
+.cont .overdue .overdue_type ol {
+  display: flex;
+  flex-direction: column;
+  border-right: 1rpx dashed #fff;
+  height: 146rpx;
+  line-height: 37rpx;
+  padding: 43rpx 30rpx 0rpx 30rpx;
+}
+
+.cont .overdue .overdue_type ol li {
+  color: #fff;
+}
+
+.cont .overdue .overdue_type ol li:first-of-type em {
+  color: #fff;
+  font-size: 27rpx;
+  font-style: normal;
+}
+
+.cont .overdue .overdue_type ol li:first-of-type span {
+  color: #fff;
+  font-size: 65rpx;
+  margin-left: 6rpx;
+}
+
+.cont .overdue .overdue_type ol li:last-of-type {
+  font-size: 23rpx;
+  margin-top: 18rpx;
+}
+
+.cont .overdue .overdue_type ul {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding-left: 20rpx;
+}
+
+.cont .overdue .overdue_type ul li {
+  color: #fff;
+  font-size: 25rpx;
+}
+
+.cont .overdue .overdue_type ul li:last-of-type {
+  margin-top: 15rpx;
+}
+
+.cont .overdue > em, .cont .overdue i {
+  position: absolute;
+  bottom: 11%;
+  width: 50rpx;
+  height: 50rpx;
+  background: #fff;
+  z-index: 999;
+  border-radius: 50%;
+}
+
+.cont .overdue em {
+  left: -3%;
+}
+
+.cont .overdue i {
+  right: -2%;
+}
+
+.cont .overdue p {
+  width: 96%;
+  padding: 10rpx 0 10rpx 30rpx;
+  background: #fff;
+  color: #999da2;
+  font-size: 30rpx;
+}

@@ -1,9 +1,10 @@
 import Taro, { Component } from '@tarojs/taro'
 import { Provider } from '@tarojs/mobx'
-import Payment from './pages/payment'
-import My from './pages/my'
+import Payment from './pages/payment'//我的订单
+import My from './pages/my'//我的页面
+import Rate from './pages/rate'//我优惠券
 import counterStore from './store/counter'
-
+import Emil from './store/emil'
 import './app.scss'
 
 // 如果需要在 h5 环境中开启 React Devtools
@@ -20,9 +21,9 @@ class App extends Component {
 
   config = {
     pages: [
-      'pages/my/index',
-      'pages/payment/index',
-      
+      // 'pages/my/index',
+      // 'pages/payment/index',
+      'pages/rate/index',
     ],
     window: {
       backgroundTextStyle: 'light',
@@ -45,7 +46,7 @@ class App extends Component {
   render () {
     return (
       <Provider store={store}>
-        <My/>
+        <Rate/>
       </Provider>
     )
   }

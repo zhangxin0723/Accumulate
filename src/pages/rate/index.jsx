@@ -2,34 +2,27 @@ import Taro, { Component } from '@tarojs/taro'
 import { View, Button, Text } from '@tarojs/components'
 import { observer, inject } from '@tarojs/mobx'
 import withWeapp from '@tarojs/with-weapp'
-import FooterCont from '../../component/footerCont'
+import Overdue from '../../component/overdue/overdue'
 import './index.scss'
 var data = [
   {
-    name: "全部",
-    orderStatus: 0,
+    name: "未使用",
   },
   {
-    name: "待付款",
-    orderStatus: 1,
+    name: "已使用",
   },
   {
-    name: "待发货",
-    orderStatus: 2,
-  },
-  {
-    name: "待收货",
-    orderStatus: 3,
+    name: "已过期",
   },
 
 ];
 @inject('counterStore')
 @observer
 
-class Rate extends Component {
+class Payment extends Component {
 
   config = {
-    navigationBarTitleText: '我的订单'
+    navigationBarTitleText: '我的优惠券'
   }
 
   componentWillMount () { 
@@ -41,17 +34,9 @@ class Rate extends Component {
   componentWillReact () {
     console.log('componentWillReact')
   }
-  // getList = async () => {
-  //   const params: object = {
-  //     orderStatus:newName.orderStatus
-  //   };
-  //   const res = await getInTheaters(params);
-  //   this.setState({
-  //     orderStatus: res
-  //   });
-  // };
+  
   componentDidMount () { 
-    this.getList()
+    
   }
 
   componentWillUnmount () {
@@ -83,13 +68,11 @@ class Rate extends Component {
   state={
     newName:"",
     newDtata:[],
-    newIndex:''
+    newIndex:0
   }
   render () {
     // const { counterStore: { counter } } = this.props
-    {
-      console.log(orderStatus)
-    }
+    
     let {newName,newDtata,newIndex}=this.state
     return (
       <View className='wrap'>
@@ -99,10 +82,10 @@ class Rate extends Component {
             {
               newDtata.map((item,index)=>{
                 return <View style={{
-                   borderBottom:item.orderStatus==newIndex?'3rpx solid #33d6c5':null
+                     borderBottom:index===newIndex?'3rpx solid #33d6c5':null
                 }} onClick={()=>{
                     this.setState({
-                      newIndex:item.orderStatus
+                      newIndex:index
                     })
                 }}><li>{item.name}</li></View>
               })
@@ -113,7 +96,7 @@ class Rate extends Component {
              <View className="footer_type">
                 <span>向上加载</span>
                 <View className="footer_cont">
-                   <FooterCont/>
+                   <Overdue/>
                 </View>
                 <span>向下加载</span>
              </View>
@@ -128,4 +111,4 @@ class Rate extends Component {
   }
 }
 
-export default Rate 
+export default Payment 
