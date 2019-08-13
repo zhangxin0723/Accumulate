@@ -4,7 +4,7 @@ import { observer, inject } from '@tarojs/mobx'
 
 import './index.scss'
 import baobao from '../../img/baobao.jpg'
-
+import Cart from '../components/cart'
 @inject('counterStore')
 @observer
 class Index extends Component {
@@ -26,33 +26,33 @@ class Index extends Component {
   componentDidShow () { }
 
   componentDidHide () { } 
-
+  checkedAll() {
+      console.log('Alll')
+  }
   render () {
     return (
       <View className='wrap'>
           <View className='main'>
-              <View className='main_cart'>
-                <View className='cart_checked'>
-                    <span></span>
-                </View>
-                <Image src={baobao} alt=""/>
-                <View className='cart_cont'>
-                    <p>帮宝适绿帮纸尿裤大号L64片超薄透气男女通用婴儿尿片尿不湿</p>
-                    <span>规格：XL</span>
-                    <View className='cart_box'>
-                        <p>¥<span>52.50</span></p>
-                        <View>
-                            <span>-</span>
-                            <span>1</span>
-                            <span>+</span>
-                        </View>
-                    </View>
-                </View>
-                {/* <dl>
-                    <dt></dt>
-                    <dd>帮宝适绿帮纸尿裤大号L64片超薄透气男女通用婴儿尿片尿不湿</dd>
-                </dl> */}
-              </View>
+              <Cart></Cart>
+              <Cart></Cart>
+              <Cart></Cart>
+              <Cart></Cart>
+              <Cart></Cart>
+              <Cart></Cart>
+          </View>
+          <View className='cart_footer'>
+            <View className='cart_checked'>
+                <View className='cart_span' onClick={() => this.checkedAll()}></View>
+                <View className='cart_spans' onClick={() => this.checkedAll()}></View>
+                <p>全选</p>
+            </View>
+            <View className='aggregate'>
+                <p>总计：<span>¥198.8</span></p>
+            </View>
+            <View className='cart_footer_button'>
+                <span>完成</span>
+                <span>删除</span>
+            </View>
           </View>
           <View className="footer">123333</View>
       </View>

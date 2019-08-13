@@ -18,43 +18,55 @@ html,body,#app {
     background: rgb(191, 191, 219);
     padding: 30rpx;
     box-sizing: border-box;
-    .main_cart {
-        width: 100%;
-        height: 250rpx;
+    overflow: auto;
+    box-sizing: border-box;
+    padding-bottom: 100rpx;
+}
+.cart_footer {
+    width: 100%;
+    height: 100rpx;
+    background: #fff;
+    position: fixed;
+    bottom: 88rpx;
+    display: flex;
+    align-items: center;
+    padding: 0 0 0 30rpx;
+    border-bottom: 1px solid #eee;
+    justify-content: space-between;
+    box-sizing: border-box;
+    .cart_checked {
         display: flex;
-        background: #fff;
-        align-items: center;
-        justify-content: space-between;
-        box-sizing: border-box;
-        padding: 15rpx;
-        border-radius: 10rpx;
-        .cart_checked {
-            display: flex;
-            span {  
-                width: 40rpx;
-                height: 40rpx;
-                border: 1px solid #00f;
-                border-radius: 50%;
+        .cart_span {  
+            width: 40rpx;
+            height: 40rpx;
+            border: 1px solid rgb(85, 196, 240);
+            border-radius: 50%;
+            margin-right: 10rpx;
+        }
+    }
+    .aggregate {
+        p {
+            span {
+                color: red;
             }
         }
-        Image {
-            width: 200rpx;
-            height: 160rpx;
-            margin: 0 30rpx;
-        }
-        .cart_cont {
-            display: flex;
-            flex-direction: column;
-            p {
-                font-size: 30rpx;
+    }
+    .cart_footer_button {
+        span {
+            background: #0f0;
+            padding: 28rpx 38rpx;
+            color: #fff;
+            &:first-child {
+                background: linear-gradient(217deg,rgb(114, 173, 173),rgb(8, 228, 228));
             }
-        }
-        .cart_box {
-            display: flex;
-            justify-content: space-between;
+            &:last-child {
+                background: linear-gradient(217deg,rgb(241, 64, 168),rgb(245, 133, 221));
+            }
         }
     }
 }
 .footer {
     width: 100%;
+    height: 88rpx;
+    background: #fff;
 }
