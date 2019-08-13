@@ -3,13 +3,22 @@ import { View } from '@tarojs/components'
 import { observer , inject } from '@tarojs/mobx'
 
 import baobao from '../../../img/baobao.jpg'
+import svgd from '../../../img/椭圆形-为勾选(1).svg'
+import svg from '../../../img/椭圆形-为勾选.svg'
+
 import './index.scss'
+
 class Cart extends Component {
+    constructor(props) {
+        super(props)
+    }
     render() {
         return (
             <View className='main_cart'>
                 <View className='cart_checked'>
-                    <span></span>
+                <View className='cart_span' onClick={() => this.checkedAll()}>
+                    {this.state.flag === false ? <Image src={svg}></Image> : <Image src={svgd}></Image>}
+                </View>
                 </View>
                 <Image src={baobao} alt=""/>
                 <View className='cart_cont'>

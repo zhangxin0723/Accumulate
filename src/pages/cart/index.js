@@ -3,9 +3,9 @@ import { View } from '@tarojs/components'
 import { observer, inject } from '@tarojs/mobx'
 
 import './index.scss'
-import baobao from '../../img/baobao.jpg'
 import svgd from '../../img/椭圆形-为勾选.svg'
 import svg from '../../img/椭圆形-为勾选(1).svg'
+
 import Cart from '../components/cart'
 @inject('counterStore')
 @observer

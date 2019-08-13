@@ -1,75 +1,62 @@
-html, body, #app {
-  width: 100%;
-  height: 100%;
+.wrap_delivery {
+  display: flex;
+  padding: 30rpx 0rpx;
+  box-sizing: border-box;
+  border-bottom: 1px solid #eee;
 }
 
-.wrap {
-  width: 100%;
-  height: 100%;
+.wrap_delivery .delivery_left {
+  width: 85%;
+}
+
+.wrap_delivery .delivery_left .delivery_name {
   display: flex;
   flex-direction: column;
 }
 
-.main {
-  flex: 1;
-  background: #bfbfdb;
-  padding: 30rpx;
-  box-sizing: border-box;
-  overflow: auto;
-  box-sizing: border-box;
-  padding-bottom: 100rpx;
+.wrap_delivery .delivery_left .delivery_name p {
+  font-size: 28rpx;
 }
 
-.cart_footer {
-  width: 100%;
-  height: 100rpx;
-  background: #fff;
-  position: fixed;
-  bottom: 88rpx;
+.wrap_delivery .delivery_left .delivery_name p:last-child {
+  margin: 10rpx 0;
+}
+
+.wrap_delivery .delivery_left .delivery_default {
+  width: 95%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.wrap_delivery .delivery_left .delivery_default span {
+  padding: 6rpx 10rpx;
+  background: #ffdeff;
+  color: #f32afa;
+  font-size: 20rpx;
+  margin-right: 10rpx;
+  box-sizing: border-box;
+}
+
+.wrap_delivery .delivery_left .delivery_default p {
+  font-size: 26rpx;
+  padding-right: 40rpx;
+}
+
+.wrap_delivery .delivery_left .delivery_default p b {
+  color: #f32afa;
+}
+
+.wrap_delivery .delivery_right {
+  width: 15%;
   display: flex;
   align-items: center;
-  padding: 0 0 0 30rpx;
-  border-bottom: 1px solid #eee;
-  justify-content: space-between;
+  border-left: 1px solid #eee;
   box-sizing: border-box;
+  align-content: center;
 }
 
-.cart_footer .cart_checked {
-  display: flex;
-}
-
-.cart_footer .cart_checked .cart_span {
-  width: 40rpx;
-  height: 40rpx;
-  border-radius: 50%;
-  margin-right: 10rpx;
-}
-
-.cart_footer .cart_checked .cart_span Image {
+.wrap_delivery .delivery_right .delivery_compile {
   width: 100%;
-  height: 100%;
-}
-
-.cart_footer .aggregate p span {
-  color: red;
-}
-
-.cart_footer .cart_footer_button span {
-  background: #0f0;
-  padding: 28rpx 38rpx;
-  color: #fff;
-}
-
-.cart_footer .cart_footer_button span:first-child {
-  background: linear-gradient(217deg, #72adad, #08e4e4);
-}
-
-.cart_footer .cart_footer_button span:last-child {
-  background: linear-gradient(217deg, #f140a8, #f585dd);
-}
-
-.footer {
-  width: 100%;
-  height: 88rpx;
-  background: #fff;
+  text-align: center;
 }
