@@ -1,0 +1,96 @@
+.cont {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  width: 92%;
+  margin: 15rpx auto;
+  border-radius: 10rpx;
+  padding: 10rpx;
+  border-bottom: .01rpx solid #f6f6f6;
+}
+
+.cont ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20rpx;
+}
+
+.cont ul li {
+  font-size: 30rpx;
+  padding: 20rpx 0;
+}
+
+.cont ul li:first-of-type {
+  color: #abaeb3;
+}
+
+.cont ul li:last-of-tye {
+  color: #000;
+  font-size: 25rpx;
+}
+
+.cont .boby {
+  padding: 0 25rpx;
+}
+
+.cont .boby ol {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 0.1rpx solid #f6f6f6;
+  padding: 20rpx 0;
+}
+
+.cont .boby ol li:first-of-type {
+  width: 140rpx;
+  height: 140rpx;
+}
+
+.cont .boby ol li:first-of-type Image {
+  width: 100%;
+  height: 100%;
+}
+
+.cont .boby ol li:last-of-type {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin-left: 44rpx;
+}
+
+.cont .boby ol li:last-of-type span:first-of-type {
+  font-size: 30rpx;
+  color: #5a5a5a;
+}
+
+.cont .boby ol li:last-of-type span:nth-of-type(2) {
+  color: #b1b4b8;
+  font-size: 30rpx;
+  display: block;
+  margin: 16rpx 0;
+}
+
+.cont .boby ol li:last-of-type span:last-of-type {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cont .boby ol li:last-of-type span:last-of-type i {
+  font-style: normal;
+  color: #323a45;
+  font-size: 30rpx;
+}
+
+.cont .boby p {
+  width: 100%;
+  height: 44rpx;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 27rpx;
+  color: #484848;
+  margin-top: 20rpx;
+  padding-bottom: 80rpx;
+}
