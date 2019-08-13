@@ -13,6 +13,11 @@ page, .wrap {
   height: 300rpx;
 }
 
+.wrap .header > Image {
+  width: 100%;
+  height: 300rpx;
+}
+
 .wrap .header > .header_name {
   width: 100%;
   position: fixed;
@@ -30,11 +35,12 @@ page, .wrap {
   justify-content: around;
   align-items: center;
   padding-left: 61rpx;
+  margin-top: 12rpx;
 }
 
 .wrap .header > .header_name ul li:first-of-type {
-  width: 124rpx;
-  height: 124rpx;
+  width: 90rpx;
+  height: 90rpx;
 }
 
 .wrap .header > .header_name ul li:first-of-type > Image {
@@ -56,7 +62,13 @@ page, .wrap {
 .wrap .header > .header_name ul li:last-of-type span:first-of-type {
   font-size: 40rpx;
   display: flex;
-  justify-content: space-around;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.wrap .header > .header_name ul li:last-of-type span:first-of-type i {
+  font-size: 32rpx;
+  font-style: normal;
 }
 
 .wrap .header > .header_name ul li:last-of-type span:first-of-type em {
@@ -64,6 +76,8 @@ page, .wrap {
   display: inline-block;
   width: 78rpx;
   height: 35rpx;
+  margin-top: -10rpx;
+  margin-left: 10rpx;
 }
 
 .wrap .header > .header_name ul li:last-of-type span:first-of-type em > Image {
@@ -72,9 +86,8 @@ page, .wrap {
 }
 
 .wrap .header > .header_name ul li:last-of-type span:last-of-type {
-  font-size: 30rpx;
-  margin-top: 10rpx;
-  padding-left: 10rpx;
+  font-size: 22rpx;
+  margin-top: 15rpx;
 }
 
 .wrap .header > .header_name ul li:last-of-type span:last-of-type i {
@@ -94,7 +107,7 @@ page, .wrap {
 .wrap .center .center_colse {
   position: fixed;
   left: 3%;
-  top: 23%;
+  top: 21%;
   width: 95%;
   background: #ecf0f0;
   border-radius: 12rpx;
@@ -111,7 +124,7 @@ page, .wrap {
 }
 
 .wrap .center .center_colse .center_my span {
-  font-size: 22rpx;
+  font-size: 23rpx;
   padding: 10rpx 0;
 }
 
@@ -138,6 +151,8 @@ page, .wrap {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 90%;
+  margin: 0 auto;
 }
 
 .wrap .center .center_colse .center_payment ul li {
@@ -182,6 +197,8 @@ page, .wrap {
 .wrap .center .center_colse .discount ol {
   display: flex;
   flex-direction: column;
+  width: 90%;
+  margin: 0 auto;
 }
 
 .wrap .center .center_colse .discount ol li {
@@ -207,7 +224,7 @@ page, .wrap {
 
 .wrap .center .center_colse .discount ol li > span em, .wrap .center .center_colse .discount ol li > span i {
   font-style: normal;
-  font-size: 20rpx;
+  font-size: 23rpx;
   padding: 10rpx 0;
   color: #323a45;
 }
@@ -216,12 +233,11 @@ page, .wrap {
   color: #c2c4c7;
   width: 40rpx;
   height: 40rpx;
-  margin-right: 33rpx;
 }
 
 .wrap .center .center_colse .discount ol li > span i Image {
-  width: 100%;
-  height: 100%;
+  width: 40%;
+  height: 40%;
 }
 
 .wrap .center .center_colse p {

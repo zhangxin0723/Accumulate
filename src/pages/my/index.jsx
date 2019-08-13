@@ -67,7 +67,8 @@ class My extends Component {
                <Image src={members}/>
             </li>
             <li>
-               <span>默默许愿 
+               <span>
+                 <i>默默许愿</i> 
                   <em>
                     <Image src={Group}/> 
                   </em>
@@ -107,7 +108,7 @@ class My extends Component {
               <ol>
                 <li>
                    <Image src={yhj}/>
-                  <span><em>优惠券</em><i><Image src={jt}/></i></span>
+                  <span><em>我的优惠券</em><i><Image src={jt}/></i></span>
                 </li>
                 <li>
                 <Image src={kf}/>
