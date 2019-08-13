@@ -5,7 +5,7 @@ import Index from './pages/index'
 import counterStore from './store/counter'
 
 import './app.scss'
-
+import "taro-ui/dist/style/components/switch.scss";
 // 如果需要在 h5 环境中开启 React Devtools
 // 取消以下注释：
 // if (process.env.NODE_ENV !== 'production' && process.env.TARO_ENV === 'h5')  {
@@ -20,9 +20,10 @@ class App extends Component {
 
   config = {
     pages: [
+      'pages/address/index',
       'pages/delivery/index',
       'pages/cart/index',
-      'pages/index/index'
+      'pages/index/index',
     ],
     window: {
       backgroundTextStyle: 'light',
