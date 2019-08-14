@@ -53,6 +53,7 @@ class Rate extends Component {
   // };
   componentDidMount () { 
     // this.getList()
+    console.log(this.props,'090')
   }
 
   componentWillUnmount () {
