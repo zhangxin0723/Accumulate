@@ -16,8 +16,13 @@ var data = [
   },
 
 ];
+<<<<<<< HEAD
 // @inject('counterStore')
 // @observer
+=======
+@inject('counterStore')
+@observer
+>>>>>>> 5f6d0f979b61992867622aaa304d51e6b7206d93
 
 class Payment extends Component {
 
@@ -51,17 +56,38 @@ class Payment extends Component {
 
   componentDidHide () { }
 
+<<<<<<< HEAD
  
 
 
 
 
+=======
+  increment = () => {
+    const { counterStore } = this.props
+    counterStore.increment()
+  }
+
+  decrement = () => {
+    const { counterStore } = this.props
+    counterStore.decrement()
+  }
+
+  incrementAsync = () => {
+    const { counterStore } = this.props
+    counterStore.incrementAsync()
+  }
+>>>>>>> 5f6d0f979b61992867622aaa304d51e6b7206d93
   state={
     newName:"",
     newDtata:[],
     newIndex:0
   }
   render () {
+<<<<<<< HEAD
+=======
+    // const { counterStore: { counter } } = this.props
+>>>>>>> 5f6d0f979b61992867622aaa304d51e6b7206d93
     
     let {newName,newDtata,newIndex}=this.state
     return (

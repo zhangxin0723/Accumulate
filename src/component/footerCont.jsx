@@ -5,6 +5,7 @@ import one from '../images/one.png'
 import './footerCont.scss'
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 class FooterCont extends Component {
 =======
 // @inject()
@@ -12,11 +13,18 @@ class FooterCont extends Component {
 
 class Index extends Component {
 >>>>>>> 37e11c23f786ef45d4d3d8c851eb28412997b79c
+=======
+
+@inject('counterStore')
+@observer
+class FooterCont extends Component {
+>>>>>>> 5f6d0f979b61992867622aaa304d51e6b7206d93
 
   config = {
     navigationBarTitleText: '我的订单'
   }
 
+<<<<<<< HEAD
   componentWillMount() { }
 
   componentWillReact() {
@@ -43,6 +51,39 @@ class Index extends Component {
 
   render () {
  
+=======
+  componentWillMount () { }
+
+  componentWillReact () {
+    console.log('componentWillReact')
+  }
+
+  componentDidMount () { }
+
+  componentWillUnmount () { }
+
+  componentDidShow () { }
+
+  componentDidHide () { }
+
+  increment = () => {
+    const { counterStore } = this.props
+    counterStore.increment()
+  }
+
+  decrement = () => {
+    const { counterStore } = this.props
+    counterStore.decrement()
+  }
+
+  incrementAsync = () => {
+    const { counterStore } = this.props
+    counterStore.incrementAsync()
+  }
+
+  render () {
+    // const { counterStore: { counter } } = this.props
+>>>>>>> 5f6d0f979b61992867622aaa304d51e6b7206d93
     return (
       <View className='cont'>
         <ul>
