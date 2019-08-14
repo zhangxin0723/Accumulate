@@ -4,46 +4,28 @@ import { observer, inject } from '@tarojs/mobx'
 import one from '../images/one.png'
 import './footerCont.scss'
 
-
-@inject('counterStore')
-@observer
 class FooterCont extends Component {
 
   config = {
     navigationBarTitleText: '我的订单'
   }
 
-  componentWillMount () { }
+  componentWillMount() { }
 
-  componentWillReact () {
+  componentWillReact() {
     console.log('componentWillReact')
   }
 
-  componentDidMount () { }
+  componentDidMount() { }
 
-  componentWillUnmount () { }
+  componentWillUnmount() { }
 
-  componentDidShow () { }
+  componentDidShow() { }
 
-  componentDidHide () { }
-
-  increment = () => {
-    const { counterStore } = this.props
-    counterStore.increment()
-  }
-
-  decrement = () => {
-    const { counterStore } = this.props
-    counterStore.decrement()
-  }
-
-  incrementAsync = () => {
-    const { counterStore } = this.props
-    counterStore.incrementAsync()
-  }
+  componentDidHide() { }
 
   render () {
-    // const { counterStore: { counter } } = this.props
+ 
     return (
       <View className='cont'>
         <ul>

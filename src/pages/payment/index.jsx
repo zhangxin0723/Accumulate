@@ -23,8 +23,6 @@ var data = [
   },
 
 ];
-@inject('counterStore')
-@observer
 
 class Rate extends Component {
 
@@ -42,17 +40,8 @@ class Rate extends Component {
   componentWillReact () {
     console.log('componentWillReact')
   }
-  // getList = async () => {
-  //   const params: object = {
-  //     orderStatus:newName.orderStatus
-  //   };
-  //   const res = await getInTheaters(params);
-  //   this.setState({
-  //     orderStatus: res
-  //   });
-  // };
+  
   componentDidMount () { 
-    // this.getList()
   }
 
   componentWillUnmount () {
@@ -67,27 +56,13 @@ class Rate extends Component {
 
   componentDidHide () { }
 
-  increment = () => {
-    const { counterStore } = this.props
-    counterStore.increment()
-  }
-
-  decrement = () => {
-    const { counterStore } = this.props
-    counterStore.decrement()
-  }
-
-  incrementAsync = () => {
-    const { counterStore } = this.props
-    counterStore.incrementAsync()
-  }
+  
   state={
     newName:"",
     newDtata:[],
     newIndex:''
   }
   render () {
-    // const { counterStore: { counter } } = this.props
     
     let {newName,newDtata,newIndex}=this.state
     return (
@@ -112,16 +87,13 @@ class Rate extends Component {
              <View className="footer_type">
                 <span>向上加载</span>
                 <View className="footer_cont">
-                   <FooterCont/>
+                   <FooterCont />
                 </View>
                 <span>向下加载</span>
              </View>
           </View>
         </View>
-        {/* <Button onClick={this.increment}>+</Button>
-        <Button onClick={this.decrement}>-</Button>
-        <Button onClick={this.incrementAsync}>Add Async</Button>
-        <Text>{counter}</Text> */}
+       
       </View>
     )
   }

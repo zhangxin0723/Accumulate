@@ -1,0 +1,76 @@
+.list_item{
+  width: 100%;
+  height: 300rpx;
+  background: #eee;
+  display: flex;
+  .item_img{
+    width: 35%;
+    height: 100%;
+    background: #333;
+    margin-right: 10rpx;
+    image{
+      width: 100%;
+      height: 80%;
+    }
+  }
+  .item_cont{
+    flex:1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    .item_tit{
+      flex:2;
+      background: #f00;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+    .item_des,.item_price{
+      flex:1;
+      width: 100%;
+    }
+    .item_des{
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      .dec_item{
+        padding: 2rpx 8rpx;
+        border: 1rpx solid pink;
+        margin: 0 15rpx;
+        text-align: center;
+        font-size: 22rpx;
+        color: pink;
+      }
+    }
+    .item_price{
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      font-size: 22rpx;
+      image{
+        width: 70rpx;
+        height: 45%;
+        margin-right: 20rpx;
+      }
+      .price_cell{
+        font-size: 30rpx;
+        color: pink;
+        margin-right: 10rpx;
+      }
+      .price_num{
+        font-size: 40rpx;
+        color: #fc5d7b;
+        margin-right: 10rpx;
+      }
+      .price_next{
+        margin-right: 10rpx;
+      }
+      .price_get{
+        padding: 0 8rpx;
+        background: pink;
+        color: #fc5d7b;
+      }
+    }
+  }
+}
