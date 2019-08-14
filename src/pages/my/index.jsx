@@ -28,11 +28,7 @@ var data = [
     Image: others
   },
   {
-<<<<<<< HEAD
-    name: "待收货",
-=======
     name: "待收货的",
->>>>>>> 5f6d0f979b61992867622aaa304d51e6b7206d93
     orderStatus: 3,
     Image: received
   },
@@ -41,12 +37,8 @@ var data = [
     orderStatus: 0,
   }
 ];
-<<<<<<< HEAD
-
-=======
 @inject("counterStore")
 @observer
->>>>>>> 5f6d0f979b61992867622aaa304d51e6b7206d93
 class My extends Component {
   config = {
     navigationBarTitleText: "首页"
@@ -72,9 +64,6 @@ class My extends Component {
 
   componentDidHide() {}
 
-<<<<<<< HEAD
-  
-=======
   increment = () => {
     const { counterStore } = this.props;
     counterStore.increment();
@@ -89,15 +78,11 @@ class My extends Component {
     const { counterStore } = this.props;
     counterStore.incrementAsync();
   };
->>>>>>> 5f6d0f979b61992867622aaa304d51e6b7206d93
   state = {
     newDtata: []
   };
   render() {
-<<<<<<< HEAD
-=======
     // const { counterStore: { counter } } = this.props
->>>>>>> 5f6d0f979b61992867622aaa304d51e6b7206d93
     const { newDtata } = this.state;
     return (
       <View className="wrap">

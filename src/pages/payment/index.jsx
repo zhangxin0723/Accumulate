@@ -23,11 +23,8 @@ var data = [
   },
 
 ];
-<<<<<<< HEAD
-=======
 @inject('counterStore')
 @observer
->>>>>>> 5f6d0f979b61992867622aaa304d51e6b7206d93
 
 class Rate extends Component {
 
@@ -45,10 +42,6 @@ class Rate extends Component {
   componentWillReact () {
     console.log('componentWillReact')
   }
-<<<<<<< HEAD
-  
-  componentDidMount () { 
-=======
   // getList = async () => {
   //   const params: object = {
   //     orderStatus:newName.orderStatus
@@ -60,7 +53,7 @@ class Rate extends Component {
   // };
   componentDidMount () { 
     // this.getList()
->>>>>>> 5f6d0f979b61992867622aaa304d51e6b7206d93
+    console.log(this.props,'090')
   }
 
   componentWillUnmount () {
@@ -75,9 +68,6 @@ class Rate extends Component {
 
   componentDidHide () { }
 
-<<<<<<< HEAD
-  
-=======
   increment = () => {
     const { counterStore } = this.props
     counterStore.increment()
@@ -92,17 +82,13 @@ class Rate extends Component {
     const { counterStore } = this.props
     counterStore.incrementAsync()
   }
->>>>>>> 5f6d0f979b61992867622aaa304d51e6b7206d93
   state={
     newName:"",
     newDtata:[],
     newIndex:''
   }
   render () {
-<<<<<<< HEAD
-=======
     // const { counterStore: { counter } } = this.props
->>>>>>> 5f6d0f979b61992867622aaa304d51e6b7206d93
     
     let {newName,newDtata,newIndex}=this.state
     return (
@@ -127,24 +113,16 @@ class Rate extends Component {
              <View className="footer_type">
                 <span>向上加载</span>
                 <View className="footer_cont">
-<<<<<<< HEAD
-                   <FooterCont />
-=======
                    <FooterCont/>
->>>>>>> 5f6d0f979b61992867622aaa304d51e6b7206d93
                 </View>
                 <span>向下加载</span>
              </View>
           </View>
         </View>
-<<<<<<< HEAD
-       
-=======
         {/* <Button onClick={this.increment}>+</Button>
         <Button onClick={this.decrement}>-</Button>
         <Button onClick={this.incrementAsync}>Add Async</Button>
         <Text>{counter}</Text> */}
->>>>>>> 5f6d0f979b61992867622aaa304d51e6b7206d93
       </View>
     )
   }

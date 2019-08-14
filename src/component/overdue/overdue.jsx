@@ -4,12 +4,9 @@ import { observer, inject } from '@tarojs/mobx'
 import one from '../images/one.png'
 import './overdue.scss'
 
-<<<<<<< HEAD
-=======
 
 @inject('counterStore')
 @observer
->>>>>>> 5f6d0f979b61992867622aaa304d51e6b7206d93
 class Overdue extends Component {
 
   config = {
@@ -30,9 +27,6 @@ class Overdue extends Component {
 
   componentDidHide () { }
 
-<<<<<<< HEAD
-
-=======
   increment = () => {
     const { counterStore } = this.props
     counterStore.increment()
@@ -47,7 +41,6 @@ class Overdue extends Component {
     const { counterStore } = this.props
     counterStore.incrementAsync()
   }
->>>>>>> 5f6d0f979b61992867622aaa304d51e6b7206d93
 
   render () {
     // const { counterStore: { counter } } = this.props

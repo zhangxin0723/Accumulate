@@ -5,13 +5,8 @@ import withWeapp from '@tarojs/with-weapp'
 import creame from '../../images/creame.png'
 import './indes.scss'
 
-<<<<<<< HEAD
-// @inject('counterStore')
-// @observer
-=======
 @inject('counterStore')
 @observer
->>>>>>> 5f6d0f979b61992867622aaa304d51e6b7206d93
 
 class tication extends Component {
 
@@ -39,10 +34,6 @@ class tication extends Component {
 
   componentDidHide () { }
 
-<<<<<<< HEAD
- 
-  render () {
-=======
   increment = () => {
     const { counterStore } = this.props
     counterStore.increment()
@@ -60,7 +51,6 @@ class tication extends Component {
  
   render () {
     // const { counterStore: { counter } } = this.props
->>>>>>> 5f6d0f979b61992867622aaa304d51e6b7206d93
     return (
       <View className='wrap'>
          <View className="name">
