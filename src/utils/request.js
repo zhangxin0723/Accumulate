@@ -2,8 +2,8 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-13 14:24:49
- * @LastEditTime: 2019-08-13 14:24:49
- * @LastEditors: your name
+ * @LastEditTime: 2019-08-14 19:54:56
+ * @LastEditors: Please set LastEditors
  */
 var Fly=require("flyio/dist/npm/wx") 
 const fly=new Fly
@@ -22,7 +22,7 @@ fly.interceptors.request.use((request)=>{
 
     // let openid = wx.getStorageSync('openid');
     // console.log(openid,"openid1111111111111111")
-  let value='F649B34989975F268EA5BC4927E7C2365DBB8293767D955992FF410009F6B2DE301BCDFBE166230EBF083C72B5B6A948277C0041980DAC5E46FA1EF475B12D4773F05A5E984CF1D814817C9546DF831BF9D9BD6C1F2231AFA450731B6837E7084E77DC9918A436BC'
+    let value=''
 
     // if (openid){
     //   request.headers['openid'] = openid;

@@ -21,7 +21,21 @@ class NavDetail extends Component {
 
   }
 
-  componentDidMount() { }
+  componentDidMount() {
+    Taro.request({
+      url: 'https://upapi.jinaup.com/api/open/product/category/query/1.0.0',
+      header: {
+        'content-type': 'application/json',
+      },
+      method: 'POST',
+      success: (res) => {
+        console.log(res)
+        // this.setState({
+        //   navlist: res.data.result
+        // })
+      }
+    })
+   }
 
   componentWillUnmount() { }
 

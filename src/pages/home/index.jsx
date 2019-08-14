@@ -22,7 +22,38 @@ class Index extends Component {
   }
 
   componentDidMount() { 
-    this.props.home.getList()
+    // this.props.home.getList()
+    Taro.request({
+      url: 'https://upapi.jinaup.com/api/open/page/home/products/1.0.0',
+      header: {
+        'content-type': 'application/json',
+      },
+      method: 'POST',
+      success: (res) => {
+        console.log(res)
+        // this.setState({
+        //   navlist: res.data.result
+        // })
+      }
+    })
+
+    // Taro.request({
+    //   url: 'https://upapi.jinaup.com/api/open/page/home/list/1.0.0',
+    //   header: {
+    //     'content-type': 'application/json',
+    //     'trackId': 'F649B34989975F2672F778DFE1F6CC7C0A012572F93A8D44E9E2E6A43B0D64EF5B753BD95E281A12FB6E2657CA3C322C8EDD48AD88C1D895AA882EE69AF51E209A101AD4A318BF41E54B13C189A368B3080D4CB37654208721AA2141D76141878B4F2F23C363A567319335B0AF520D12'
+
+    //   },
+    //   method: 'POST',
+    //   success: (res) => {
+    //     console.log(res)
+    //     // this.setState({
+    //     //   sectionList: res.data.result
+    //     // })
+    //   }
+    // })
+
+
   }
 
   componentWillUnmount() { }
