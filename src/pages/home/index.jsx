@@ -22,20 +22,20 @@ class Index extends Component {
   }
 
   componentDidMount() { 
-    // this.props.home.getList()
-    Taro.request({
-      url: 'https://upapi.jinaup.com/api/open/page/home/products/1.0.0',
-      header: {
-        'content-type': 'application/json',
-      },
-      method: 'POST',
-      success: (res) => {
-        console.log(res)
-        // this.setState({
-        //   navlist: res.data.result
-        // })
-      }
-    })
+    this.props.home.getList()
+    // Taro.request({
+    //   url: 'https://upapi.jinaup.com/api/open/page/home/products/1.0.0',
+    //   header: {
+    //     'content-type': 'application/json',
+    //   },
+    //   method: 'POST',
+    //   success: (res) => {
+    //     console.log(res)
+    //     // this.setState({
+    //     //   navlist: res.data.result
+    //     // })
+    //   }
+    // })
 
     // Taro.request({
     //   url: 'https://upapi.jinaup.com/api/open/page/home/list/1.0.0',
