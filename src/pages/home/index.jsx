@@ -22,8 +22,7 @@ class Index extends Component {
   }
 
   componentDidMount() { 
-    console.log(this.props,"123123132")
-    this.props.home.getHome()
+    this.props.home.getList()
   }
 
   componentWillUnmount() { }
