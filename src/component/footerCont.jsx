@@ -4,9 +4,6 @@ import { observer, inject } from '@tarojs/mobx'
 import one from '../images/one.png'
 import './footerCont.scss'
 
-
-@inject('counterStore')
-@observer
 class FooterCont extends Component {
 
   config = {
@@ -27,23 +24,8 @@ class FooterCont extends Component {
 
   componentDidHide () { }
 
-  increment = () => {
-    const { counterStore } = this.props
-    counterStore.increment()
-  }
-
-  decrement = () => {
-    const { counterStore } = this.props
-    counterStore.decrement()
-  }
-
-  incrementAsync = () => {
-    const { counterStore } = this.props
-    counterStore.incrementAsync()
-  }
 
   render () {
-    // const { counterStore: { counter } } = this.props
     return (
       <View className='cont'>
         <ul>
