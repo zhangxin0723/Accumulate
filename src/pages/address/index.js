@@ -1,12 +1,12 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View } from '@tarojs/components'
-import { observer, inject } from '@tarojs/mobx'
+// import { observer, inject } from '@tarojs/mobx'
 
 import './index.scss'
 import xiayibu from '../../img/下一步.svg'
 import { AtForm, AtSwitch } from 'taro-ui'
-@inject('counterStore')
-@observer
+// @inject('counterStore')
+// @observer
 
 class Index extends Component {
   constructor(props) {

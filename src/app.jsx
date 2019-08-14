@@ -1,20 +1,20 @@
 import Taro, { Component } from '@tarojs/taro'
 import { Provider } from '@tarojs/mobx'
-import Index from './pages/index'
+import Index from './pages/home/index.jsx'
 
-import counterStore from './store/counter'
+import store from './store'
 
 import './app.scss'
 import "taro-ui/dist/style/components/switch.scss";
+
+console.log(store)
+
 // 如果需要在 h5 环境中开启 React Devtools
 // 取消以下注释：
 // if (process.env.NODE_ENV !== 'production' && process.env.TARO_ENV === 'h5')  {
 //   require('nerv-devtools')
 // }
 
-const store = {
-  counterStore
-}
 
 class App extends Component {
 
@@ -24,6 +24,7 @@ class App extends Component {
       'pages/delivery/index',
       'pages/cart/index',
       'pages/index/index',
+      'pages/home/index'
     ],
     window: {
       backgroundTextStyle: 'light',

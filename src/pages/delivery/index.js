@@ -1,12 +1,12 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, Button, Text } from '@tarojs/components'
-import { observer, inject } from '@tarojs/mobx'
+// import { observer, inject } from '@tarojs/mobx'
 
 import './index.scss'
 import Delivery from '../components/delivery'
 
-@inject('counterStore')
-@observer
+// @inject('counterStore')
+// @observer
 class Index extends Component {
 
   config = {
@@ -26,21 +26,6 @@ class Index extends Component {
   componentDidShow () { }
 
   componentDidHide () { }
-
-  increment = () => {
-    const { counterStore } = this.props
-    counterStore.increment()
-  }
-
-  decrement = () => {
-    const { counterStore } = this.props
-    counterStore.decrement()
-  }
-
-  incrementAsync = () => {
-    const { counterStore } = this.props
-    counterStore.incrementAsync()
-  }
 
   render () {
     return (

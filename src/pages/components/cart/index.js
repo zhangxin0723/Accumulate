@@ -1,6 +1,6 @@
 import Taro , { Component } from '@tarojs/taro'
 import { View } from '@tarojs/components'
-import { observer , inject } from '@tarojs/mobx'
+// import { observer , inject } from '@tarojs/mobx'
 
 import baobao from '../../../img/baobao.jpg'
 import svgd from '../../../img/椭圆形-为勾选(1).svg'
