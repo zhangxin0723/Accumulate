@@ -7,7 +7,6 @@ import store from './store'
 import './app.scss'
 import "taro-ui/dist/style/components/switch.scss";
 
-console.log(store)
 
 // 如果需要在 h5 环境中开启 React Devtools
 // 取消以下注释：
@@ -23,8 +22,8 @@ class App extends Component {
       'pages/address/index',
       'pages/delivery/index',
       'pages/cart/index',
+      'pages/home/index',
       'pages/index/index',
-      'pages/home/index'
     ],
     window: {
       backgroundTextStyle: 'light',

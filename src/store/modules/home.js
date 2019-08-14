@@ -15,7 +15,7 @@ export default class Home {
   //@action 修饰方法
   @action getHome = (params) => {
       const data = getHome(params)
-      console.log(data)
+      // console.log(data)
   }
   
 }
