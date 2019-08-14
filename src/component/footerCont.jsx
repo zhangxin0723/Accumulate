@@ -4,7 +4,14 @@ import { observer, inject } from '@tarojs/mobx'
 import one from '../images/one.png'
 import './footerCont.scss'
 
+<<<<<<< HEAD
 class FooterCont extends Component {
+=======
+// @inject()
+// @observer
+
+class Index extends Component {
+>>>>>>> 37e11c23f786ef45d4d3d8c851eb28412997b79c
 
   config = {
     navigationBarTitleText: '我的订单'
@@ -17,12 +24,22 @@ class FooterCont extends Component {
   }
 
   componentDidMount() { }
+<<<<<<< HEAD
 
   componentWillUnmount() { }
 
   componentDidShow() { }
 
   componentDidHide() { }
+=======
+
+  componentWillUnmount() { }
+
+  componentDidShow() { }
+
+  componentDidHide() { }
+
+>>>>>>> 37e11c23f786ef45d4d3d8c851eb28412997b79c
 
   render () {
  
