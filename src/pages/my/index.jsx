@@ -28,7 +28,7 @@ var data = [
     Image: others
   },
   {
-    name: "待收货",
+    name: "待收货的",
     orderStatus: 3,
     Image: received
   },
@@ -37,7 +37,8 @@ var data = [
     orderStatus: 0,
   }
 ];
-
+@inject("counterStore")
+@observer
 class My extends Component {
   config = {
     navigationBarTitleText: "首页"
@@ -63,11 +64,25 @@ class My extends Component {
 
   componentDidHide() {}
 
-  
+  increment = () => {
+    const { counterStore } = this.props;
+    counterStore.increment();
+  };
+
+  decrement = () => {
+    const { counterStore } = this.props;
+    counterStore.decrement();
+  };
+
+  incrementAsync = () => {
+    const { counterStore } = this.props;
+    counterStore.incrementAsync();
+  };
   state = {
     newDtata: []
   };
   render() {
+    // const { counterStore: { counter } } = this.props
     const { newDtata } = this.state;
     return (
       <View className="wrap">

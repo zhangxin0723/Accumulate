@@ -4,45 +4,46 @@ import { observer, inject } from '@tarojs/mobx'
 import one from '../images/one.png'
 import './footerCont.scss'
 
-<<<<<<< HEAD
-class FooterCont extends Component {
-=======
-// @inject()
-// @observer
 
-class Index extends Component {
->>>>>>> 37e11c23f786ef45d4d3d8c851eb28412997b79c
+@inject('counterStore')
+@observer
+class FooterCont extends Component {
 
   config = {
     navigationBarTitleText: '我的订单'
   }
 
-  componentWillMount() { }
+  componentWillMount () { }
 
-  componentWillReact() {
+  componentWillReact () {
     console.log('componentWillReact')
   }
 
-  componentDidMount() { }
-<<<<<<< HEAD
+  componentDidMount () { }
 
-  componentWillUnmount() { }
+  componentWillUnmount () { }
 
-  componentDidShow() { }
+  componentDidShow () { }
 
-  componentDidHide() { }
-=======
+  componentDidHide () { }
 
-  componentWillUnmount() { }
+  increment = () => {
+    const { counterStore } = this.props
+    counterStore.increment()
+  }
 
-  componentDidShow() { }
+  decrement = () => {
+    const { counterStore } = this.props
+    counterStore.decrement()
+  }
 
-  componentDidHide() { }
-
->>>>>>> 37e11c23f786ef45d4d3d8c851eb28412997b79c
+  incrementAsync = () => {
+    const { counterStore } = this.props
+    counterStore.incrementAsync()
+  }
 
   render () {
- 
+    // const { counterStore: { counter } } = this.props
     return (
       <View className='cont'>
         <ul>
