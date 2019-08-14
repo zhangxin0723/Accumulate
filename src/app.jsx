@@ -4,7 +4,6 @@ import Payment from './pages/payment'//我的订单
 import My from './pages/my'//我的页面
 import Rate from './pages/rate'//我优惠券
 import Tication from './pages/tication'//实名认证
-
 import counterStore from './store/counter'
 import './app.scss'
 import store from './store/'
@@ -24,6 +23,8 @@ class App extends Component {
       'pages/payment/index',
       'pages/rate/index',
       'pages/tication/index',
+      'pages/delivery/index',
+      'pages/service/index'
     ],
     window: {
       backgroundTextStyle: 'light',
