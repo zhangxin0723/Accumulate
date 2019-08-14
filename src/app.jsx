@@ -25,7 +25,6 @@ class App extends Component {
       'pages/my/index',
       'pages/payment/index',
       'pages/rate/index',
-      'pages/rate/index',
       'pages/tication/index',
     ],
     window: {
