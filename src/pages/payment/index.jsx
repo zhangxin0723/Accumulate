@@ -33,6 +33,7 @@ class Rate extends Component {
   }
 
   componentWillMount () { 
+    console.log(this.$router.params,'params')
     this.setState({
       newName:this.$router.params
     })
@@ -51,7 +52,7 @@ class Rate extends Component {
   //   });
   // };
   componentDidMount () { 
-    this.getList()
+    // this.getList()
   }
 
   componentWillUnmount () {
@@ -87,9 +88,7 @@ class Rate extends Component {
   }
   render () {
     // const { counterStore: { counter } } = this.props
-    {
-      console.log(orderStatus)
-    }
+    
     let {newName,newDtata,newIndex}=this.state
     return (
       <View className='wrap'>
