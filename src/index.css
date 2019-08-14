@@ -64,10 +64,14 @@
 
 .conter .conter_cont .cont_all {
   padding: 10rpx 30rpx;
-  background: #2cf3b1;
   border-radius: 50rpx;
-  color: #fff;
   margin-right: 20rpx;
+  border: 1px solid #2cf3b1;
+}
+
+.conter .conter_cont .cont_all.active {
+  background: #2cf3b1;
+  color: #fff;
 }
 
 .conter .conter_footer {
