@@ -1,18 +1,22 @@
 import Taro, { Component } from '@tarojs/taro'
-import { View } from '@tarojs/components'
-// import { observer, inject } from '@tarojs/mobx'
-
+import { View , Picker } from '@tarojs/components'
+import { inject , observer } from '@tarojs/mobx'
 import './index.scss'
 import xiayibu from '../../img/下一步.svg'
 import { AtForm, AtSwitch } from 'taro-ui'
-// @inject('counterStore')
-// @observer
+
+@inject('city')
+@observer
 
 class Index extends Component {
   constructor(props) {
     super(props)
     this.state = {
-        value: false
+        value: false,
+        selector: [],
+        selectorChecked: ['所在地区'],
+        label:['家','公司','学校','其他'],
+        ind:0
     }
   }
   config = {
@@ -22,10 +26,12 @@ class Index extends Component {
   componentWillMount () { }
 
   componentWillReact () {
-    console.log('componentWillReact')
+    
   }
 
-  componentDidMount () { }
+  componentDidMount () { 
+     console.log(this.props.city.getCity(),'333333')
+   }
 
   componentWillUnmount () { }
 
@@ -35,7 +41,22 @@ class Index extends Component {
   handleChange = value => {
     this.setState({ value })
   }
+  //城市
+  onChange(e) {
+    this.setState({
+      selectorChecked: `${e.detail.value[0]},${e.detail.value[1]},${e.detail.value[2]}`
+    })
+  }
+  //标签
+  labelBtn(index) {
+    this.setState({
+      ind: index
+    })
+  }
   render () {
+    this.props.city && this.props.city.myCity.map(item => {
+        this.state.selector.push(item.name)
+    })
     return (
       <View className='wrap'>
         <View className='main'>
@@ -48,7 +69,13 @@ class Index extends Component {
                 <Image src={xiayibu} />
             </View>
             <View className='region'>
-                <input type="text" placeholder='所在地区' />
+                <View className='picker'>
+                  <Picker mode='region' range={this.state.selector}  onChange={this.onChange}>
+                    <View className='picker'>
+                        {this.state.selectorChecked }
+                    </View>
+                  </Picker>
+                </View>
                 <Image src={xiayibu} />
             </View>
             <View className='detailedness'>
@@ -58,10 +85,15 @@ class Index extends Component {
         <View className='conter'>
             <span>标签</span>
             <View className='conter_cont'>
-                <View className='cont_all'>家</View>
-                <View className='cont_all'>公司</View>
-                <View className='cont_all'>学校</View>
-                <View className='cont_all'>其他</View>
+                {
+                  this.state.label.map((item,index) => {
+                      return <View 
+                      onClick={() => this.labelBtn(index)} 
+                      className={this.state.ind === index ? 'cont_all active' : 'cont_all'}
+                      key={item}>{item}
+                      </View>
+                  })
+                }
             </View>
             <View className='conter_footer'>
                 <View className='cont_default'>设为默认地址</View>

@@ -1,16 +1,17 @@
 import Taro, { Component } from "@tarojs/taro";
 import { View, Text, Swiper, SwiperItem } from "@tarojs/components";
+import { observer, inject } from "@tarojs/mobx";
 import namedPng from "../../images/1.jpg";
 import namePng1 from "../../images/2.jpg";
 import blackCard from "../../images/黑卡(2).svg";
 import "./index.scss";
 import { AtFloatLayout } from "taro-ui";
 
-// @inject('counterStore')
-// @observer
+@inject("home")
+@observer
 class CommodityDetail extends Component {
   config = {
-    navigationBarTitleText: "首页详情"
+    navigationBarTitleText: "商品详情"
   };
   constructor() {
     this.state = {
@@ -24,7 +25,9 @@ class CommodityDetail extends Component {
       };
     });
   }
-  componentWillMount() {}
+  componentWillMount() {
+    console.log(this.props.home.commodityDetails())
+  }
 
   componentWillReact() {}
 

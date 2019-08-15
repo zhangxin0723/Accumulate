@@ -16,6 +16,8 @@ var data = [
   },
 
 ];
+// @inject('counterStore')
+// @observer
 
 class Payment extends Component {
 

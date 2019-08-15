@@ -4,6 +4,9 @@ import { observer, inject } from '@tarojs/mobx'
 import one from '../images/one.png'
 import './overdue.scss'
 
+
+// @inject('counterStore')
+// @observer
 class Overdue extends Component {
 
   config = {
@@ -23,10 +26,7 @@ class Overdue extends Component {
   componentDidShow () { }
 
   componentDidHide () { }
-
-  
-
-  render () {
+render () {
     return (
       <View className='cont'>
         <View className="overdue">
