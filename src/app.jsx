@@ -2,11 +2,14 @@ import Taro, { Component } from '@tarojs/taro'
 import { Provider } from '@tarojs/mobx'
 import Payment from './pages/payment'//我的订单
 import My from './pages/my'//我的页面
-import Rate from './pages/rate'//我的优惠券
+import Rate from './pages/rate'//我优惠券
 import Tication from './pages/tication'//实名认证
-import Index from './pages/home/index.jsx'
-import store from './store'
+import counterStore from './store/counter'
 import './app.scss'
+import store from './store/'
+import Index from "./pages/home/index.jsx";
+import NavDetail from "./pages/navDetail";
+import "taro-ui/dist/style/index.scss";
 import "taro-ui/dist/style/components/switch.scss";
 // import '@tarojs/async-await'
 
@@ -17,46 +20,50 @@ import "taro-ui/dist/style/components/switch.scss";
 // }
 
 
-class App extends Component {
 
+class App extends Component {
   config = {
     pages: [
-      'pages/detailCanvas/index',
-      'pages/address/index',
-      'pages/delivery/index',
-      'pages/cart/index',
-      'pages/home/index',
-      'pages/index/index',
-      'pages/my/index',
-      'pages/payment/index',
-      'pages/rate/index',
-      'pages/tication/index',
+      'pages/service/index',
+      //商品详情
+      "pages/CommodityDetail/index",
+      //提交订单
+      "pages/PlaceOrder/index",
+      "pages/address/index",
+      "pages/delivery/index",
+      "pages/cart/index",
+      "pages/home/index",
+      "pages/index/index",
+      "pages/my/index",
+      "pages/payment/index",
+      "pages/rate/index",
+      "pages/tication/index"
     ],
     window: {
-      backgroundTextStyle: 'light',
-      navigationBarBackgroundColor: '#fff',
-      navigationBarTitleText: 'WeChat',
-      navigationBarTextStyle: 'black'
+      backgroundTextStyle: "light",
+      navigationBarBackgroundColor: "#fff",
+      navigationBarTitleText: "WeChat",
+      navigationBarTextStyle: "black"
     }
-  }
+  };
 
-  componentDidMount () {}
+  componentDidMount() {}
 
-  componentDidShow () {}
+  componentDidShow() {}
 
-  componentDidHide () {}
+  componentDidHide() {}
 
-  componentDidCatchError () {}
+  componentDidCatchError() {}
 
   // 在 App 类中的 render() 函数没有实际作用
   // 请勿修改此函数
-  render () {
+  render() {
     return (
       <Provider store={store}>
-        <Index/>
+        <Index />
       </Provider>
-    )
+    );
   }
 }
 
-Taro.render(<App />, document.getElementById('app'))
+Taro.render(<App />, document.getElementById("app"));
