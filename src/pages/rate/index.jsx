@@ -50,6 +50,8 @@ class Payment extends Component {
   }
 
   componentDidHide () { }
+
+
   state={
     newName:"",
     newDtata:[],

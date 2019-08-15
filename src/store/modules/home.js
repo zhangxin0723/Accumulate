@@ -2,20 +2,21 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-13 14:46:30
- * @LastEditTime: 2019-08-15 11:48:29
+ * @LastEditTime: 2019-08-16 07:53:36
  * @LastEditors: Please set LastEditors
  */
-import { observable, action } from 'mobx'
-import { getNavList, getList } from '../../server/home'
+import { observable, action } from "mobx";
+import { getHome, commodityDetails , getCanvas ,getList } from "../../server";
 
-import regeneratorRuntime from '../../utils/runtime'
-console.log(regeneratorRuntime,"regeneratorRuntime")
-
+import regeneratorRuntime from "../../utils/runtime";
+console.log(regeneratorRuntime, "regeneratorRuntime");
 export default class Home {
   //@observable 修饰符
   @observable navList = null;
   @observable list = null;
   @observable selectedList = null;
+  @observable homeList = null;
+  @observable mydetailCanvas = []
    
   //@action 修饰方法
   @action getNavList = async (params) => {
@@ -43,4 +44,21 @@ export default class Home {
     this.selectedList = arr
     console.log(this.selectedList,"res...")
   }
+  //@action 修饰方法
+  @action getHome = params => {
+    const data = getHome(params);
+    console.log(data);
+  };
+  //商品详情
+  @action commodityDetails = () => {
+    const data = commodityDetails();
+    console.log(data, "1111");
+  };
+  //分享
+  @action getCanvas = async (params) => {
+    const data = await getCanvas(params)
+    console.log(data)
+  }
 }
+  
+

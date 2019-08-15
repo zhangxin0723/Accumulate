@@ -26,8 +26,7 @@ class Overdue extends Component {
   componentDidShow () { }
 
   componentDidHide () { }
-
-  render () {
+render () {
     return (
       <View className='cont'>
         <View className="overdue">

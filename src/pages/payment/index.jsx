@@ -23,8 +23,8 @@ var data = [
   },
 
 ];
-// @inject('counterStore')
-// @observer
+@inject('my')
+@observer
 
 class Rate extends Component {
 
@@ -33,7 +33,6 @@ class Rate extends Component {
   }
 
   componentWillMount () { 
-    console.log(this.$router.params,'params')
     this.setState({
       newName:this.$router.params
     })
@@ -42,18 +41,9 @@ class Rate extends Component {
   componentWillReact () {
     console.log('componentWillReact')
   }
-  // getList = async () => {
-  //   const params: object = {
-  //     orderStatus:newName.orderStatus
-  //   };
-  //   const res = await getInTheaters(params);
-  //   this.setState({
-  //     orderStatus: res
-  //   });
-  // };
+  
   componentDidMount () { 
-    // this.getList()
-    console.log(this.props,'090')
+    this.props.my.getMy({orderStatus:this.$router.params.orderStatus})
   }
 
   componentWillUnmount () {
@@ -67,20 +57,26 @@ class Rate extends Component {
   }
 
   componentDidHide () { }
+   
   state={
     newName:"",
     newDtata:[],
     newIndex:''
   }
   render () {
+    
     let {newName,newDtata,newIndex}=this.state
     return (
       <View className='wrap'>
         <View className="made">
           <ul>
+              {/*返回数据*/}
             
             {
-              newDtata.map((item,index)=>{
+              console.log(this.props.my.data,'003')
+            }
+            {
+              newDtata.map((item,index)=>{s
                 return <View style={{
                    borderBottom:item.orderStatus==newIndex?'3rpx solid #33d6c5':null
                 }} onClick={()=>{
@@ -102,10 +98,7 @@ class Rate extends Component {
              </View>
           </View>
         </View>
-        {/* <Button onClick={this.increment}>+</Button>
-        <Button onClick={this.decrement}>-</Button>
-        <Button onClick={this.incrementAsync}>Add Async</Button>
-        <Text>{counter}</Text> */}
+        
       </View>
     )
   }
