@@ -1,8 +1,9 @@
 import Taro, { Component } from "@tarojs/taro";
 import { Provider } from "@tarojs/mobx";
 import Index from "./pages/home/index.jsx";
-import counterStore from "./store/counter";
 import store from "./store";
+
+import NavDetail from "./pages/navDetail";
 
 import "./app.scss";
 
@@ -22,11 +23,15 @@ class App extends Component {
       "pages/CommodityDetail/index",
       //提交订单
       "pages/PlaceOrder/index",
-      "pages/index/index",
       "pages/address/index",
       "pages/delivery/index",
       "pages/cart/index",
-      "pages/home/index"
+      "pages/home/index",
+      "pages/index/index",
+      "pages/my/index",
+      "pages/payment/index",
+      "pages/rate/index",
+      "pages/tication/index"
     ],
     window: {
       backgroundTextStyle: "light",
