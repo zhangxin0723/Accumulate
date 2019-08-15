@@ -2,7 +2,7 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-13 14:46:30
- * @LastEditTime: 2019-08-14 14:37:15
+ * @LastEditTime: 2019-08-15 08:33:44
  * @LastEditors: Please set LastEditors
  */
 import { observable, action } from 'mobx'
@@ -19,6 +19,10 @@ export default class Home {
   @action getList = async (params) => {
       const data = await getList(params)
       console.log(data,"data")
+  }
+  @action getHome = (params) => {
+      const data = getHome(params)
+      // console.log(data)
   }
      
 } 

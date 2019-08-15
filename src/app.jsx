@@ -16,45 +16,46 @@ import "taro-ui/dist/style/components/switch.scss";
 //   require('nerv-devtools')
 // }
 
+
 class App extends Component {
+
   config = {
     pages: [
+      'pages/address/index',
+      'pages/delivery/index',
+      'pages/cart/index',
       'pages/home/index',
-      'pages/navDetail/index',
-      //提交订单
-      "pages/PlaceOrder/index",
-      //商品详情
-      "pages/CommodityDetail/index",
-      "pages/index/index",
-      "pages/address/index",
-      "pages/delivery/index",
-      "pages/cart/index",
+      'pages/index/index',
+      'pages/my/index',
+      'pages/payment/index',
+      'pages/rate/index',
+      'pages/tication/index',
     ],
     window: {
-      backgroundTextStyle: "light",
-      navigationBarBackgroundColor: "#fff",
-      navigationBarTitleText: "WeChat",
-      navigationBarTextStyle: "black"
+      backgroundTextStyle: 'light',
+      navigationBarBackgroundColor: '#fff',
+      navigationBarTitleText: 'WeChat',
+      navigationBarTextStyle: 'black'
     }
-  };
+  }
 
-  componentDidMount() {}
+  componentDidMount () {}
 
-  componentDidShow() {}
+  componentDidShow () {}
 
-  componentDidHide() {}
+  componentDidHide () {}
 
-  componentDidCatchError() {}
+  componentDidCatchError () {}
 
   // 在 App 类中的 render() 函数没有实际作用
   // 请勿修改此函数
-  render() {
+  render () {
     return (
       <Provider store={store}>
-        <NavDetail />
+        <Index/>
       </Provider>
-    );
+    )
   }
 }
 
-Taro.render(<App />, document.getElementById("app"));
+Taro.render(<App />, document.getElementById('app'))
