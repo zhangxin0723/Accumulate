@@ -8,7 +8,7 @@
 import { observable, action } from 'mobx'
 import { getMy } from '../../server/my'
 
-export default class Home {
+export default class My {
   //@observable 修饰符
   // @observable homeData = null;
   @observable data=[]

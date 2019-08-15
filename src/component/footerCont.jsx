@@ -4,6 +4,9 @@ import { observer, inject } from '@tarojs/mobx'
 import one from '../images/one.png'
 import './footerCont.scss'
 
+
+// @inject('counterStore')
+// @observer
 class FooterCont extends Component {
 
   config = {
