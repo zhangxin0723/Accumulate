@@ -1,5 +1,5 @@
 import Taro, { Component } from '@tarojs/taro'
-import { View , Picker } from '@tarojs/components'
+import { View , Picker , Input , Textarea} from '@tarojs/components'
 import { inject , observer } from '@tarojs/mobx'
 import './index.scss'
 import xiayibu from '../../img/下一步.svg'
@@ -17,7 +17,11 @@ class Index extends Component {
         selectorChecked: ['所在地区'],
         label:['家','公司','学校','其他'],
         ind:0,
-        consignee:''
+        consignee:'',
+        phone:'',
+        Text:'',
+        labels:'',
+        num:1
     }
   }
   config = {
@@ -40,38 +44,77 @@ class Index extends Component {
 
   componentDidHide () { } 
   handleChange = value => {
-    this.setState({ value })
+    console.log(value,'value...')
+    if(value === true) {
+      this.setState({ 
+        num:0
+      })
+    } else {
+      this.setState({
+        num:1
+      })
+    }
+    
   }
   //城市
   onChange(e) {
+    console.log(e,'e厂....')
     this.setState({
       selectorChecked: `${e.detail.value[0]},${e.detail.value[1]},${e.detail.value[2]}`
     })
   }
   //标签
-  labelBtn(index) {
+  labelBtn(item,index) {
+    console.log(item)
     this.setState({
-      ind: index
+      ind: index,
+      labels:item
     })
   }
   //保存
   save() {
-    console.log(this.props.city.address())
-    console.log(this.state.consignee )
+    // console.log(this.props.city.address())
+    console.log(this.state.selectorChecked.slice(',',3))
+  }
+  onchangeinput(e) {
+    this.setState({
+      consignee:e.target.value
+    })
+  }
+  onchangeinputPhone(e) {
+    console.log(e.target.value)
+    this.setState({
+      phone:e.target.value
+    })
+  }
+  onchangeinputText(e) {
+    console.log(e.target.value,'e.....')
+    this.setState({
+      Text:e.target.value
+    })
   }
   render () {
     this.props.city && this.props.city.myCity.map(item => {
+        // console.log(item,'id....')
         this.state.selector.push(item.name)
     })
     return (
       <View className='wrap'>
         <View className='main'>
             <View className='name'>
-                <input type="text" placeholder='收货人' value={this.state.consignee} />
+                <Input type="text" 
+                placeholder='收货人'
+                value={this.state.consignee}
+                onChange={(e) => this.onchangeinput(e)} 
+                />
                 <Image src={xiayibu} />
             </View>
             <View className='phone'>
-                <input type="text" placeholder='手机号码' />
+                <Input type="text" 
+                placeholder='手机号码'
+                value={this.state.phone}
+                onChange={(e) => this.onchangeinputPhone(e)}
+                 />
                 <Image src={xiayibu} />
             </View>
             <View className='region'>
@@ -85,7 +128,13 @@ class Index extends Component {
                 <Image src={xiayibu} />
             </View>
             <View className='detailedness'>
-                <textarea placeholder="详细地址：如道路,门牌号,小区,楼栋号,单元室等"  rows="3" type="text" />
+                <Textarea 
+                 placeholder="详细地址：如道路,门牌号,小区,楼栋号,单元室等"  
+                 rows="3" 
+                 type="text" 
+                 value={this.state.Text}
+                 onBlur={(e) => this.onchangeinputText(e)}
+                 />
             </View>
         </View>
         <View className='conter'>
@@ -94,7 +143,7 @@ class Index extends Component {
                 {
                   this.state.label.map((item,index) => {
                       return <View 
-                      onClick={() => this.labelBtn(index)} 
+                      onClick={() => this.labelBtn(item,index)} 
                       className={this.state.ind === index ? 'cont_all active' : 'cont_all'}
                       key={item}>{item}
                       </View>
