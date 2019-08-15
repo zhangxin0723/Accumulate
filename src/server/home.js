@@ -10,3 +10,7 @@ import fly from '../utils/request'
 export function getHome(params){
   return fly.post('/api/open/page/home/products/1.0.0')
 }
+//合成图片
+export function getCanvas(params) {
+  return fly.post('/api/open/product/info/1.0.0',params)
+}

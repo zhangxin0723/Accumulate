@@ -8,7 +8,7 @@ import Index from './pages/home/index.jsx'
 import store from './store'
 import './app.scss'
 import "taro-ui/dist/style/components/switch.scss";
-
+// import '@tarojs/async-await'
 
 // 如果需要在 h5 环境中开启 React Devtools
 // 取消以下注释：
@@ -21,6 +21,7 @@ class App extends Component {
 
   config = {
     pages: [
+      'pages/detailCanvas/index',
       'pages/address/index',
       'pages/delivery/index',
       'pages/cart/index',

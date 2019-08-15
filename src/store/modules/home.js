@@ -6,16 +6,17 @@
  * @LastEditors: Please set LastEditors
  */
 import { observable, action } from 'mobx'
-import { getHome } from '../../server/home'
-
+import { getHome , getCanvas } from '../../server/home'
+import regeneratorRuntime from '../../utils/runtime'
+console.log(regeneratorRuntime,'regeneratorRuntime')
 export default class Home {
   //@observable 修饰符
-  // @observable homeData = null;
-
+  @observable mydetailCanvas = []
   //@action 修饰方法
-  @action getHome = (params) => {
-      const data = getHome(params)
-      // console.log(data)
+  //分享
+  @action getCanvas = async (params) => {
+    const data = await getCanvas(params)
+    console.log(data)
   }
   
 }

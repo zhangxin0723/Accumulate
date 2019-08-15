@@ -16,7 +16,8 @@ class Index extends Component {
         selector: [],
         selectorChecked: ['所在地区'],
         label:['家','公司','学校','其他'],
-        ind:0
+        ind:0,
+        consignee:''
     }
   }
   config = {
@@ -53,6 +54,11 @@ class Index extends Component {
       ind: index
     })
   }
+  //保存
+  save() {
+    console.log(this.props.city.address())
+    console.log(this.state.consignee )
+  }
   render () {
     this.props.city && this.props.city.myCity.map(item => {
         this.state.selector.push(item.name)
@@ -61,7 +67,7 @@ class Index extends Component {
       <View className='wrap'>
         <View className='main'>
             <View className='name'>
-                <input type="text" placeholder='收货人' />
+                <input type="text" placeholder='收货人' value={this.state.consignee} />
                 <Image src={xiayibu} />
             </View>
             <View className='phone'>
@@ -106,7 +112,7 @@ class Index extends Component {
         </View>
         <View className='footer_bt'>
             <View className='delete'>删除收货信息</View>
-            <View className='save'>保存</View>
+            <View className='save' onClick={() => this.save()}>保存</View>
         </View>
       </View>
     )
