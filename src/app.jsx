@@ -23,7 +23,13 @@ import "taro-ui/dist/style/components/switch.scss";
 class App extends Component {
   config = {
     pages: [
+      //我的页面
+      "pages/my/index",
+      //canvas
+      "pages/canvase/index",
       'pages/service/index',
+      "pages/home/index",
+      
       //商品详情
       "pages/CommodityDetail/index",
       //提交订单
@@ -31,9 +37,7 @@ class App extends Component {
       "pages/address/index",
       "pages/delivery/index",
       "pages/cart/index",
-      "pages/home/index",
       "pages/index/index",
-      "pages/my/index",
       "pages/payment/index",
       "pages/rate/index",
       "pages/tication/index"
@@ -59,7 +63,7 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <Index />
+        <My />
       </Provider>
     );
   }

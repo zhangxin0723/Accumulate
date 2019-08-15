@@ -195,10 +195,6 @@ class My extends Component {
             </li>
           </ol>
         </View>
-        {/* <Button onClick={this.increment}>+</Button>
-        <Button onClick={this.decrement}>-</Button>
-        <Button onClick={this.incrementAsync}>Add Async</Button>
-        <Text>{counter}</Text> */}
       </View>
     );
   }

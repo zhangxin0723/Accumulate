@@ -6,14 +6,15 @@ import creame from '../../images/creame.png'
 import './indes.scss'
 const data=[{
   name:"正面照",
-  Image:creame
+  Image:creame,
 },{
   name:"反面照",
   Image:creame
 }]
 class tication extends Component {
   state={
-     newDate:[]
+     newDate:[],
+     tempFile:''
   }
   config = {
     navigationBarTitleText: '实名认证'
@@ -42,6 +43,10 @@ class tication extends Component {
  
  
   render () {
+    let {newDate,tempFile}=this.state
+   this.setState({
+    newDate:data
+   })
     return (
       <View className='wrap'>
          <View className="name">
@@ -60,34 +65,30 @@ class tication extends Component {
             <View className="identity_cont">
                <p>上传身份证片<em>(图片png,jpg格式,大小不超5M)</em></p>
                <ul>
-                 <View onClick={()=>{
-                   var that = this
-                   wx.chooseImage({
-                    count: 1,
-                    sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
-                    sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
-                    success: function (res) {
-                     var tempFilePaths = res.tempFilePaths
-                     that.setData({
-                      tempFilePaths: res.tempFilePaths
-                     })
-                     console.log(res.tempFilePaths)
-                     wx.setStorage({ key: "card", data: tempFilePaths[0] })
-                    }
+                 
+                 {
+                   newDate && newDate.map((item,index)=>{
+                      return <View  onClick={()=>{
+                        var that = this
+                        wx.chooseImage({
+                         count: 1,
+                         sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+                         sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+                         success: function (res) {
+                           var tempFilePaths = res.tempFilePaths[0]
+                           that.urlTobase(res.tempFilePaths[0]) 
+                          }
+                        })
+                        
+                      }}>
+                        <li key={index}>
+                            <Image src={item.Image}/>
+                            <span>{item.name}</span>
+                        </li>
+                      </View>
                    })
-                 }}>
-                    <li>
-                        <Image src={creame}/>
-                        <span>正面照</span>
-                    </li>
-                 </View>
-                <View>
-                    <li>
-                        <Image src={creame}/>
-                        <span>反面照</span>
-                        <input type="file"/>
-                    </li>
-                </View>
+                 }
+                
                  
                </ul>
             </View>
@@ -111,6 +112,23 @@ class tication extends Component {
        </View>
       
     )
+  }
+  urlTobase(url){
+    wx.request({
+      url:url,
+      responseType: 'arraybuffer', //最关键的参数，设置返回的数据格式为arraybuffer
+      success:res=>{
+	      //把arraybuffer转成base64
+            let base64 = wx.arrayBufferToBase64(res.data); 
+            
+            //不加上这串字符，在页面无法显示的哦
+            base64　= 'data:image/jpeg;base64,' + base64　
+            
+            //打印出base64字符串，可复制到网页校验一下是否是你选择的原图片呢
+            console.log(base64,'0987')　
+          }
+    })
+
   }
 }
 
