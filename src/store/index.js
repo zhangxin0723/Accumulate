@@ -7,9 +7,11 @@
  */
 //引入模块
 import Home from './modules/home'
-console.log(Home,12121212)
+import My from './modules/my'
 //实例化模块
 const home = new Home()
+const my = new My()
 export default {
-  home
+  home,
+  my
 }

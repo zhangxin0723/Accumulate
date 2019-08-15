@@ -14,7 +14,8 @@ import jt from "../../images/jt.png";
 import shouye from "../../images/shouye.png";
 import shop from "../../images/shop.png";
 import active from "../../images/my_active.png";
-
+import dz from "../../images/dz.png";
+import sm from '../../images/sm.png'
 import "./index.scss";
 var data = [
   {
@@ -37,8 +38,29 @@ var data = [
     orderStatus: 0,
   }
 ];
-@inject("counterStore")
-@observer
+var coupon=[{
+   name:"我的优惠券",
+   Image: yhj,
+   state:0,
+   id:1,
+   emil:'/pages/rate/index'
+},{
+  name:"收获地址",
+  Image: dz,
+  code:0,
+  id:2,
+  emil:'/pages/delivery/index'
+},{
+  name:"联系客服",
+  Image: kf,
+  id:3,
+  emil:'/pages/service/index'
+},{
+  name:"实名认证",
+  Image: sm,
+  id:4,
+  emil:'/pages/tication/index'
+}]
 class My extends Component {
   config = {
     navigationBarTitleText: "首页"
@@ -58,32 +80,19 @@ class My extends Component {
     var that = this;
 
     that.setState({
-      newDtata: data
+      newDtata: data,
+      couponData:coupon
     });
   }
 
   componentDidHide() {}
 
-  increment = () => {
-    const { counterStore } = this.props;
-    counterStore.increment();
-  };
-
-  decrement = () => {
-    const { counterStore } = this.props;
-    counterStore.decrement();
-  };
-
-  incrementAsync = () => {
-    const { counterStore } = this.props;
-    counterStore.incrementAsync();
-  };
   state = {
-    newDtata: []
+    newDtata: [],
+    couponData:[]
   };
   render() {
-    // const { counterStore: { counter } } = this.props
-    const { newDtata } = this.state;
+    const { newDtata,couponData } = this.state;
     return (
       <View className="wrap">
         <View className="header">
@@ -140,51 +149,25 @@ class My extends Component {
             </View>
             <View className="discount">
               <ol>
-                <li>
-                  <Image src={yhj} />
-                  <span>
-                    <em>我的优惠券</em>
-                    <i>
-                      <Image src={jt} />
-                    </i>
-                  </span>
-                </li>
-                <li>
-                  <Image src={kf} />
-                  <span>
-                    <em>关于我们</em>
-                    <i>
-                      <Image src={jt} />
-                    </i>
-                  </span>
-                </li>
-                <li>
-                  <Image src={yhj} />
-                  <span>
-                    <em>我的分享</em>
-                    <i>
-                      <Image src={jt} />
-                    </i>
-                  </span>
-                </li>
-                <li>
-                  <Image src={kf} />
-                  <span>
-                    <em>联系客服</em>
-                    <i>
-                      <Image src={jt} />
-                    </i>
-                  </span>
-                </li>
-                <li>
-                  <Image src={yhj} />
-                  <span>
-                    <em>设置</em>
-                    <i>
-                      <Image src={jt} />
-                    </i>
-                  </span>
-                </li>
+                {
+                  couponData&&couponData.map((item,index)=>{
+                   return <View onClick={()=>{
+                     this.coupon(item.id,item.name,item.state,item.code,Taro,item.emil,couponData)
+                   }}>
+                        <li>
+                            <Image src={item.Image} />
+                            <span>
+                              <em>{item.name}</em>
+                              <i>
+                                <Image src={jt} />
+                              </i>
+                            </span>
+                        </li>
+                   </View>
+                  })
+                }
+               
+                
               </ol>
             </View>
             <p>您的邀请人:Michael先生</p>
@@ -218,6 +201,27 @@ class My extends Component {
         <Text>{counter}</Text> */}
       </View>
     );
+  }
+  //跳路由
+  coupon(id,name,state,code,Taro,emil,couponData){
+    // console.log(id,name,state,code,Taro,emil,couponData,'09')
+    couponData.map((item,index)=>{
+        if(item.name===name){
+          if(state||code==undefined){
+            Taro.navigateTo({
+              url: `${emil}?state=${state}`
+            });
+          }else if(code||state==undefined){
+            Taro.navigateTo({
+              url: `${emil}?code=${code}`
+            });
+          }else{
+            Taro.navigateTo({
+              url: `${emil}`
+            });
+          }
+        }
+    })
   }
 }
 

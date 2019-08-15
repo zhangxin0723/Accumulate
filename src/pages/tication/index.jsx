@@ -4,12 +4,17 @@ import { observer, inject } from '@tarojs/mobx'
 import withWeapp from '@tarojs/with-weapp'
 import creame from '../../images/creame.png'
 import './indes.scss'
-
-@inject('counterStore')
-@observer
-
+const data=[{
+  name:"正面照",
+  Image:creame
+},{
+  name:"反面照",
+  Image:creame
+}]
 class tication extends Component {
-
+  state={
+     newDate:[]
+  }
   config = {
     navigationBarTitleText: '实名认证'
   }
@@ -34,23 +39,9 @@ class tication extends Component {
 
   componentDidHide () { }
 
-  increment = () => {
-    const { counterStore } = this.props
-    counterStore.increment()
-  }
-
-  decrement = () => {
-    const { counterStore } = this.props
-    counterStore.decrement()
-  }
-
-  incrementAsync = () => {
-    const { counterStore } = this.props
-    counterStore.incrementAsync()
-  }
+ 
  
   render () {
-    // const { counterStore: { counter } } = this.props
     return (
       <View className='wrap'>
          <View className="name">
@@ -69,17 +60,35 @@ class tication extends Component {
             <View className="identity_cont">
                <p>上传身份证片<em>(图片png,jpg格式,大小不超5M)</em></p>
                <ul>
-                 <li>
-                 <input type="file"/>
-                   
-                    <Image src={creame}/>
-                    <span>正面照</span>
-                 </li>
-                 <li>
-                    <Image src={creame}/>
-                    <span>反面照</span>
-                    <input type="file"/>
-                 </li>
+                 <View onClick={()=>{
+                   var that = this
+                   wx.chooseImage({
+                    count: 1,
+                    sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+                    sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+                    success: function (res) {
+                     var tempFilePaths = res.tempFilePaths
+                     that.setData({
+                      tempFilePaths: res.tempFilePaths
+                     })
+                     console.log(res.tempFilePaths)
+                     wx.setStorage({ key: "card", data: tempFilePaths[0] })
+                    }
+                   })
+                 }}>
+                    <li>
+                        <Image src={creame}/>
+                        <span>正面照</span>
+                    </li>
+                 </View>
+                <View>
+                    <li>
+                        <Image src={creame}/>
+                        <span>反面照</span>
+                        <input type="file"/>
+                    </li>
+                </View>
+                 
                </ul>
             </View>
          </View>

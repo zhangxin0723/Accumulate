@@ -16,8 +16,6 @@ var data = [
   },
 
 ];
-@inject('counterStore')
-@observer
 
 class Payment extends Component {
 
@@ -51,27 +49,13 @@ class Payment extends Component {
 
   componentDidHide () { }
 
-  increment = () => {
-    const { counterStore } = this.props
-    counterStore.increment()
-  }
 
-  decrement = () => {
-    const { counterStore } = this.props
-    counterStore.decrement()
-  }
-
-  incrementAsync = () => {
-    const { counterStore } = this.props
-    counterStore.incrementAsync()
-  }
   state={
     newName:"",
     newDtata:[],
     newIndex:0
   }
   render () {
-    // const { counterStore: { counter } } = this.props
     
     let {newName,newDtata,newIndex}=this.state
     return (

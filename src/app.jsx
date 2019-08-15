@@ -2,21 +2,18 @@ import Taro, { Component } from '@tarojs/taro'
 import { Provider } from '@tarojs/mobx'
 import Payment from './pages/payment'//我的订单
 import My from './pages/my'//我的页面
-import Rate from './pages/rate'//我的优惠券
+import Rate from './pages/rate'//我优惠券
 import Tication from './pages/tication'//实名认证
-
 import counterStore from './store/counter'
 import './app.scss'
-
+import store from './store/'
 // 如果需要在 h5 环境中开启 React Devtools
 // 取消以下注释：
 // if (process.env.NODE_ENV !== 'production' && process.env.TARO_ENV === 'h5')  {
 //   require('nerv-devtools')
 // }
 
-const store = {
-  counterStore
-}
+
 
 class App extends Component {
 
@@ -26,6 +23,8 @@ class App extends Component {
       'pages/payment/index',
       'pages/rate/index',
       'pages/tication/index',
+      'pages/delivery/index',
+      'pages/service/index'
     ],
     window: {
       backgroundTextStyle: 'light',
