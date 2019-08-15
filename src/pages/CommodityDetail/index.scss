@@ -1,0 +1,242 @@
+.detailWrap {
+  width: 100%;
+  height: auto;
+  padding-bottom: 120rpx;
+  box-sizing: border-box;
+  .test-h {
+    width: 100%;
+    height: 700rpx;
+    background: sandybrown;
+    .SwiperItem {
+      width: 100%;
+      height: 700rpx;
+      background: sandybrown;
+      .SwiperBanner {
+        width: 100%;
+        height: 700rpx;
+        image {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+}
+.detailWrapTit {
+  width: 100%;
+  margin-top: 20rpx;
+  height: 60rpx;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 20rpx;
+  box-sizing: border-box;
+  line-height: 60rpx;
+  .detailWrapTitLeft {
+    display: flex;
+    image {
+      width: 40rpx;
+      height: 20rpx;
+    }
+    .detailWrapTitMoney {
+      display: flex;
+      color: #fc5d7b;
+      .detailWrapTitMoneyOne {
+        font-size: 30rpx;
+      }
+      View {
+        font-size: 44rpx;
+      }
+    }
+    Text {
+      font-size: 26rpx;
+      color: #a97a33;
+      margin-left: 20rpx;
+    }
+    image {
+      margin-top: 30rpx;
+      margin-left: 16rpx;
+    }
+  }
+  .detailWrapTitShare {
+    font-size: 30rpx;
+    color: #fc5d7b;
+    padding: 0 20rpx;
+    border: solid 2rpx #fc5d7b;
+    box-sizing: border-box;
+    border-top-left-radius: 22rpx;
+    border-bottom-left-radius: 22rpx;
+  }
+}
+.detailWrapName {
+  width: 100%;
+  height: 110rpx;
+  margin-top: 20rpx;
+  padding: 10rpx 20rpx;
+  box-sizing: border-box;
+  .detailWrapTop {
+    font-size: 36rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .detailWrapBottom {
+    font-size: 26rpx;
+    color: rgba(107, 104, 104, 0.61);
+    margin-top: 20rpx;
+  }
+}
+.detailWrapChoice {
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  margin-top: 10rpx;
+  font-size: 32rpx;
+  View {
+    display: flex;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    .detailWrapChoicePink {
+      color: #fc5d7b;
+      margin-left: 20rpx;
+    }
+  }
+  .detailWrapChoiceGt {
+    color: rgba(107, 104, 104, 0.61);
+  }
+}
+.detailWrapList{
+  width: 100%;
+  height: auto;
+}
+.detailWrapMask {
+  width: 100%;
+  height: 180rpx;
+  display: flex;
+  padding: 20rpx;
+  box-sizing: border-box;
+  .detailWrapMaskBanner {
+    width: 140rpx;
+    height: 140rpx;
+    image {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .detailWrapMaskPrice {
+    margin-left: 2 0rpx;
+    display: flex;
+    flex-direction: column;
+    margin-left: 20rpx;
+    margin-top: 10rpx;
+    .detailWrapMaskPriceMoney {
+      font-size: 33rpx;
+    }
+    .detailWrapMaskPriceStock {
+      font-size: 34rpx;
+      color: rgba(204, 204, 204, 0.664);
+      margin-top: 10rpx;
+    }
+  }
+}
+.detailWrapMaskColor {
+  width: 100%;
+  height: auto;
+  .detailWrapMaskColors {
+    font-size: 34rpx;
+    color: rgba(204, 204, 204, 0.664);
+    margin-left: 20rpx;
+    margin-top: 20rpx;
+  }
+  .detailWrapMaskColorSize {
+    display: flex;
+    flex-wrap: wrap;
+    Text {
+      margin-top: 20rpx;
+      margin-left: 20rpx;
+      flex-shrink: 0;
+      border-radius: 26rpx;
+      padding: 8rpx 20rpx;
+      box-sizing: border-box;
+      border: solid 1px rgba(204, 204, 204, 0.664);
+      text-align: center;
+    }
+  }
+}
+.detailWrapNum {
+  width: 100%;
+  height: 72rpx;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  line-height: 70rpx;
+  margin-top: 30rpx;
+  .detailWrapNumLeft {
+    color: rgba(204, 204, 204, 0.664);
+    font-size: 34rpx;
+  }
+  .detailWrapNumRight {
+    display: flex;
+    border: solid 2rpx rgba(204, 204, 204, 0.664);
+    Text {
+      padding: 0 30rpx;
+      box-sizing: border-box;
+    }
+    .detailWrapNumRightReduce,
+    .detailWrapNumRightAdd {
+      font-size: 54rpx;
+      color: rgba(76, 78, 80, 0.534);
+    }
+    .detailWrapNumRightReduce {
+      border-right: solid 2rpx rgba(204, 204, 204, 0.664);
+    }
+    .detailWrapNumRightAdd {
+      border-left: solid 2rpx rgba(204, 204, 204, 0.664);
+    }
+  }
+}
+.detailWrapNumBtn {
+  width: 100%;
+  height: 100rpx;
+  background: linear-gradient(217deg, #f86367, #fb2579);
+  color: #fff;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  font-size: 42rpx;
+  line-height: 100rpx;
+}
+.detailLower {
+  width: 100%;
+  height: 100rpx;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  text-align: center;
+  line-height: 100rpx;
+  View {
+    flex: 1;
+  }
+  .detailLowerLeft {
+    background: linear-gradient(217deg, #f86367, #fb2579);
+    color: #fff;
+  }
+  .detailLowerRight {
+    background: linear-gradient(217deg, #f86367, #fb2579);
+    color: #fff;
+  }
+}
+.at-float-layout__container {
+  height: 78%;
+}
+.active {
+  background: rgba(22, 208, 214, 0.651);
+  color: #fff;
+}

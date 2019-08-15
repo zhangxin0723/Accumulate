@@ -1,9 +1,11 @@
 import Taro, { Component } from '@tarojs/taro'
 import { Provider } from '@tarojs/mobx'
+import Payment from './pages/payment'//我的订单
+import My from './pages/my'//我的页面
+import Rate from './pages/rate'//我的优惠券
+import Tication from './pages/tication'//实名认证
 import Index from './pages/home/index.jsx'
-
 import store from './store'
-
 import './app.scss'
 import "taro-ui/dist/style/components/switch.scss";
 
@@ -24,6 +26,10 @@ class App extends Component {
       'pages/cart/index',
       'pages/home/index',
       'pages/index/index',
+      'pages/my/index',
+      'pages/payment/index',
+      'pages/rate/index',
+      'pages/tication/index',
     ],
     window: {
       backgroundTextStyle: 'light',
@@ -46,7 +52,7 @@ class App extends Component {
   render () {
     return (
       <Provider store={store}>
-        <Index />
+        <Index/>
       </Provider>
     )
   }
