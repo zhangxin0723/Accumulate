@@ -3,7 +3,9 @@ import { View, Button, Text } from '@tarojs/components'
 import { observer, inject } from '@tarojs/mobx'
 import withWeapp from '@tarojs/with-weapp'
 import creame from '../../images/creame.png'
-import './indes.scss'
+import './indes.scss';
+
+
 const data=[{
   name:"正面照",
   Image:creame,
@@ -11,6 +13,8 @@ const data=[{
   name:"反面照",
   Image:creame
 }]
+@inject('my')
+@observer
 class tication extends Component {
   state={
      newDate:[],
@@ -29,6 +33,7 @@ class tication extends Component {
   }
 
   componentDidMount () { 
+     this.props.my.getAuth()
   }
 
   componentWillUnmount () {
@@ -94,6 +99,9 @@ class tication extends Component {
             </View>
          </View>
          <View className="tication">
+         {
+           console.log(this.props.my,'props')
+         }
             <h2>为什么需要实名认证?</h2>
             <ol>
               <li>

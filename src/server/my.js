@@ -8,6 +8,9 @@
 import fly from '../utils/request'
 //我的
 export function getMy(params){
-  console.log(params,'001')
   return fly.post('/api/open/order/query/1.0.0',params)
+}
+//实名制
+export function getAuth(){
+  return fly.post('/api/open/user/auth/select/1.0.0')
 }

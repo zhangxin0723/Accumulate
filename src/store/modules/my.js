@@ -6,17 +6,22 @@
  * @LastEditors: Please set LastEditors
  */
 import { observable, action } from 'mobx'
-import { getMy } from '../../server/my'
+import { getMy,getAuth } from '../../server/my'
 
 export default class My {
   //@observable 修饰符
   // @observable homeData = null;
   @observable data=[]
+  @observable auth=[]
+  
 
   //@action 修饰方法
   @action getMy = (params) => {
-     console.log(params,'002')
       this.data = getMy(params)
   }
-  
+  //实名制
+  @action getAuth = () => {
+     this.auth = getAuth()
+ }
+ 
 }
