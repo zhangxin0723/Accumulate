@@ -2,11 +2,11 @@
  * @Description: In User Settings Edit
  * @Author: your name
  * @Date: 2019-08-13 14:46:30
- * @LastEditTime: 2019-08-16 07:53:36
+ * @LastEditTime: 2019-08-16 08:46:17
  * @LastEditors: Please set LastEditors
  */
 import { observable, action } from "mobx";
-import { getHome, commodityDetails , getCanvas ,getList } from "../../server";
+import { getHome, commodityDetails , getCanvas ,getList,getNavList } from "../../server";
 
 import regeneratorRuntime from "../../utils/runtime";
 console.log(regeneratorRuntime, "regeneratorRuntime");

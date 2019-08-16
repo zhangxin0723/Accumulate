@@ -18,6 +18,7 @@ import "taro-ui/dist/style/components/switch.scss";
 class App extends Component {
   config = {
     pages: [
+      'pages/navDetail/index',
       'pages/drawcanvas/index',
       'pages/service/index',
       //商品详情
