@@ -1,14 +1,11 @@
-import Taro, { Component } from "@tarojs/taro";
-import { Provider } from "@tarojs/mobx";
+import Taro, { Component } from '@tarojs/taro'
+import { Provider } from '@tarojs/mobx'
+import './app.scss'
+import store from './store/'
 import Index from "./pages/home/index.jsx";
-import store from "./store";
-
-import NavDetail from "./pages/navDetail";
-
-import "./app.scss";
-
 import "taro-ui/dist/style/index.scss";
 import "taro-ui/dist/style/components/switch.scss";
+// import '@tarojs/async-await'
 
 // 如果需要在 h5 环境中开启 React Devtools
 // 取消以下注释：
@@ -16,12 +13,17 @@ import "taro-ui/dist/style/components/switch.scss";
 //   require('nerv-devtools')
 // }
 
+
+
 class App extends Component {
   config = {
     pages: [
       "pages/Canvas/index",
-        //商品详情
-      "pages/CommodityDetail/index",   
+        //商品详情    
+      'pages/drawcanvas/index',
+      'pages/service/index',
+      //商品详情
+      "pages/CommodityDetail/index",
       //提交订单
       "pages/PlaceOrder/index",
       "pages/address/index",

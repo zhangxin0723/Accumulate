@@ -7,11 +7,15 @@
  */
 //引入模块
 import Home from './modules/home'
+import My from './modules/my'
 import City from './modules/city'
+
 //实例化模块
 const home = new Home()
+const my = new My()
 const city = new City()
 export default {
   home,
+  my,
   city
 }
