@@ -1,6 +1,6 @@
 //引入mobx
 import { observable , action} from 'mobx'
-import { getCity } from '../../server/city'
+import { getCity , address } from '../../server/city'
 import regeneratorRuntime from '../../utils/runtime'
 console.log(regeneratorRuntime,'regeneratorRuntime')
 export default class city {
@@ -11,5 +11,10 @@ export default class city {
         const data = await getCity()
         console.log(data.result.htLocationVoList)
         this.myCity = data.result.htLocationVoList
+    }
+    //增加收货地址
+    @action address = async () => {
+        const data = await address() 
+        console.log(data,'addres.data............')
     }
 }

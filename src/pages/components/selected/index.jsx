@@ -3,19 +3,17 @@ import { View, Button, Text, Image } from '@tarojs/components'
 import { observer, inject } from '@tarojs/mobx'
 
 import './index.scss'
- 
+
 import more from "../../../img/more.svg"
 
-// @inject('')
-// @observer
+@inject('home')
+@observer
 
 class Selected extends Component {
 
   componentWillMount() { }
 
-  componentWillReact() {
-    console.log('componentWillReact')
-  }
+  componentWillReact() { }
 
   componentDidMount() { }
 
@@ -23,51 +21,39 @@ class Selected extends Component {
 
   componentDidShow() { }
 
-  componentDidHide() { } 
+  componentDidHide() { }
 
   render() {
+    console.log(this.props.home.selectedList, "selected...")
     return (
-      <View className='select'>
-        <View className='select_top'>
-          <View className='top_img'>
-            {/* // <Image src={} /> */}
-          </View>
-        </View>
-        <View className='select_tit'>
-          <View className='tit_cont'><Text>精选好物</Text><Text className='line'></Text><Text className='wait'>等你来抢</Text></View><View className='tit_more'><Image src={more} /></View>
-        </View>
-        <View className='select_cont'>
-          <View className='cont_item'>
-            <View className='item_img'></View>
-            <View className='item_cont'></View>
-            <View className='item_price'>￥123</View>
-          </View>
-          <View className='cont_item'>
-            <View className='item_img'></View>
-            <View className='item_cont'></View>
-            <View className='item_price'>￥123</View>
-          </View>
-          <View className='cont_item'>
-            <View className='item_img'></View>
-            <View className='item_cont'></View>
-            <View className='item_price'>￥123</View>
-          </View>
-          <View className='cont_item'>
-            <View className='item_img'></View>
-            <View className='item_cont'></View>
-            <View className='item_price'>￥123</View>
-          </View>
-          <View className='cont_item'>
-            <View className='item_img'></View>
-            <View className='item_cont'></View>
-            <View className='item_price'>￥123</View>
-          </View>
-          <View className='cont_item'>
-            <View className='item_img'></View>
-            <View className='item_cont'></View>
-            <View className='item_price'>￥123</View>
-          </View>
-        </View>
+      <View>
+        {
+          this.props.home && this.props.home.selectedList.map((item, index) => {
+            return (<View className='select' key={index}>
+              <View className='select_top'>
+                <View className='top_img'>
+                   <Image src={item.img.pictUrl} />
+                </View>
+              </View>
+              <View className='select_tit'>
+                <View className='tit_cont'><Text>精选好物</Text><Text className='line'></Text><Text className='wait'>等你来抢</Text></View><View className='tit_more'><Image src={more} /></View>
+              </View>
+              <View className='select_cont'>
+                {
+                  item.cont.items.map((key,ind)=>{
+                    return (<View className='cont_item' key={ind}>
+                    <View className='item_img'>
+                      <Image src={key.imgUrl} />
+                    </View>
+                    <View className='item_cont'>{key.title}</View>
+                    <View className='item_price'>￥{key.salesPrice}</View>
+                  </View>)
+                  })
+                }
+              </View>
+            </View>)
+          })
+        }
       </View>
     )
   }

@@ -1,16 +1,11 @@
 import Taro, { Component } from '@tarojs/taro'
 import { Provider } from '@tarojs/mobx'
-import Payment from './pages/payment'//我的订单
-import My from './pages/my'//我的页面
-import Rate from './pages/rate'//我优惠券
-import Tication from './pages/tication'//实名认证
-import counterStore from './store/counter'
 import './app.scss'
 import store from './store/'
 import Index from "./pages/home/index.jsx";
-import NavDetail from "./pages/navDetail";
 import "taro-ui/dist/style/index.scss";
 import "taro-ui/dist/style/components/switch.scss";
+// import '@tarojs/async-await'
 
 // 如果需要在 h5 环境中开启 React Devtools
 // 取消以下注释：
@@ -27,6 +22,9 @@ class App extends Component {
       "pages/my/index",
       //canvas
       "pages/canvase/index",
+      "pages/Canvas/index",
+        //商品详情    
+      'pages/drawcanvas/index',
       'pages/service/index',
       "pages/home/index",
       
