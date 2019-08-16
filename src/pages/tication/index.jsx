@@ -13,6 +13,11 @@ const data=[{
   name:"反面照",
   Image:creame
 }]
+const identity=[{
+  name:"姓名"
+},{
+   name:"身份证号",
+}]
 @inject('my')
 @observer
 class tication extends Component {
@@ -21,7 +26,7 @@ class tication extends Component {
      tempFile:''
   }
   config = {
-    navigationBarTitleText: '实名认证'
+    navigationBarTitleText: '实名的认证'
   }
 
   componentWillMount () { 
@@ -48,22 +53,25 @@ class tication extends Component {
  
  
   render () {
-    let {newDate,tempFile}=this.state
+    let {newDate,tempFile,identityList}=this.state
    this.setState({
-    newDate:data
+    newDate:data,
+    identityList:identity
    })
     return (
       <View className='wrap'>
          <View className="name">
              <ul>
-               <li>
-                 <span>真实姓名</span>
-                 <input type="text"/>
-               </li>
-               <li>
-                 <span>身份证号</span>
-                 <input type="text"/>
-               </li>
+               {
+                 identityList&&identityList.map((item,index)=>{
+                    return <li>
+                    <span>{item.name}</span>
+                    <input type="text"/>
+                  </li>
+                 })
+               }
+               
+               
              </ul>
          </View>
          <View className="identity">
@@ -114,7 +122,9 @@ class tication extends Component {
               </li>
             </ol>
          </View>
-         <View className="button">
+         <View className="button" onClick={()=>{
+             
+         }}> 
             <button>保存</button>
          </View>
        </View>
@@ -129,7 +139,7 @@ class tication extends Component {
 	      //把arraybuffer转成base64
             let base64 = wx.arrayBufferToBase64(res.data); 
             
-            //不加上这串字符，在页面无法显示的哦
+            //不加上这串字符，在页面是无法显示的
             base64　= 'data:image/jpeg;base64,' + base64　
             
             //打印出base64字符串，可复制到网页校验一下是否是你选择的原图片呢
