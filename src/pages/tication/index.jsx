@@ -1,5 +1,5 @@
 import Taro, { Component } from '@tarojs/taro'
-import { View, Button, Text } from '@tarojs/components'
+import { View, Button, Text,Input } from '@tarojs/components'
 import { observer, inject } from '@tarojs/mobx'
 import withWeapp from '@tarojs/with-weapp'
 import creame from '../../images/creame.png'
@@ -23,7 +23,12 @@ const identity=[{
 class tication extends Component {
   state={
      newDate:[],
-     tempFile:''
+     tempFile:'',
+     id_img_positive:'',//正面照base64
+     id_img_opposite:'',//反面照base64
+     trueName:'',//姓名
+     idNumber:'',//身份证号
+     value:''
   }
   config = {
     navigationBarTitleText: '实名的认证'
@@ -38,7 +43,7 @@ class tication extends Component {
   }
 
   componentDidMount () { 
-     this.props.my.getAuth()
+    //  this.props.my.getAuth()
   }
 
   componentWillUnmount () {
@@ -49,11 +54,8 @@ class tication extends Component {
   }
 
   componentDidHide () { }
-
- 
- 
-  render () {
-    let {newDate,tempFile,identityList}=this.state
+ render () {
+    let {newDate,tempFile,identityList,id_img_positive,id_img_opposite,trueName,idNumber}=this.state
    this.setState({
     newDate:data,
     identityList:identity
@@ -63,10 +65,18 @@ class tication extends Component {
          <View className="name">
              <ul>
                {
+                 /*this.InputValue(e.target.value,item.name,trueName,idNumber) */
+               }
+               {
                  identityList&&identityList.map((item,index)=>{
                     return <li>
                     <span>{item.name}</span>
-                    <input type="text"/>
+                    <Input 
+                        type="text" 
+                        value={this.state.value}
+                        onBlur={(e) => this.onchangestar(item.name,e.target.value,trueName,idNumber)}
+                    />
+                    
                   </li>
                  })
                }
@@ -89,10 +99,10 @@ class tication extends Component {
                          sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
                          success: function (res) {
                            var tempFilePaths = res.tempFilePaths[0]
-                           that.urlTobase(res.tempFilePaths[0]) 
+                           that.urlTobase(res.tempFilePaths[0],item.name,id_img_positive,id_img_opposite,trueName,idNumber) 
                           }
                         })
-                        
+                       
                       }}>
                         <li key={index}>
                             <Image src={item.Image}/>
@@ -108,7 +118,7 @@ class tication extends Component {
          </View>
          <View className="tication">
          {
-           console.log(this.props.my,'props')
+           /*console.log(this.props.my,'props')没有码显示无法登陆*/
          }
             <h2>为什么需要实名认证?</h2>
             <ol>
@@ -123,7 +133,7 @@ class tication extends Component {
             </ol>
          </View>
          <View className="button" onClick={()=>{
-             
+             this.props.my.identity({id_img_positive:id_img_positive,id_img_opposite:id_img_opposite,trueName:trueName,idNumber:idNumber})
          }}> 
             <button>保存</button>
          </View>
@@ -131,7 +141,8 @@ class tication extends Component {
       
     )
   }
-  urlTobase(url){
+  //base64
+  urlTobase(url,name,id_img_positive,id_img_opposite,trueName,idNumber){
     wx.request({
       url:url,
       responseType: 'arraybuffer', //最关键的参数，设置返回的数据格式为arraybuffer
@@ -143,11 +154,46 @@ class tication extends Component {
             base64　= 'data:image/jpeg;base64,' + base64　
             
             //打印出base64字符串，可复制到网页校验一下是否是你选择的原图片呢
-            console.log(base64,'0987')　
-          }
+            console.log(base64,name,'0987')
+            if(name==='正面照'){
+               this.setState({
+                id_img_positive:base64
+               })
+            }else if(name==='反面照'){
+              this.setState({
+                id_img_opposite:base64
+               })
+            }
+        }
     })
 
   }
+  //姓名+身份证
+  onchangestar(itemName,value,trueName,idNumber) {
+    if(itemName==='姓名'){
+      //姓名正则
+      var regName =/^[\u4e00-\u9fa5]{2,4}$/;  
+      if(!regName.test(value)){  
+          console.log('真实姓名填写有误');  
+           return false;  
+       }  
+       this.setState({
+          trueName:value
+      })
+    }else if(itemName==='身份证号'){
+      //身份证正则
+      var regIdNo = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;  
+      if(!regIdNo.test(value)){  
+          console.log('身份证号填写有误');  
+          return false;  
+      } 
+      this.setState({
+        idNumber:value
+    })
+    }
+    
+  }
+  
 }
 
 export default tication 

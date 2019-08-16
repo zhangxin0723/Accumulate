@@ -14,3 +14,7 @@ export function getMy(params){
 export function getAuth(){
   return fly.post('/api/open/user/auth/select/1.0.0')
 }
+//提交身份证/姓名/身份证正方面/
+export function identity(params){
+  return fly.post('/api/open/user/auth/identityBase64/1.0.0',params)
+}
