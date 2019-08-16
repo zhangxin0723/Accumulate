@@ -13,8 +13,9 @@ export default class city {
         this.myCity = data.result.htLocationVoList
     }
     //增加收货地址
-    @action address = async () => {
-        const data = await address() 
+    @action address = async (params) => {
+        console.log(params,'params...')
+        const data = await address(params) 
         console.log(data,'addres.data............')
     }
 }

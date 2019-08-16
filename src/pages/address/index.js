@@ -17,11 +17,17 @@ class Index extends Component {
         selectorChecked: ['所在地区'],
         label:['家','公司','学校','其他'],
         ind:0,
-        consignee:'',
-        phone:'',
-        Text:'',
-        labels:'',
-        num:1
+        consignee:'', //收货人
+        phone:'', //手机号
+        Text:'',  //详细地址
+        labels:'', //标签
+        num:1, //默认
+        provinceId:'',//省
+        cityId:'', //市
+        areaId:'', //区
+        provinceName:'',
+        cityName:'',
+        areaName:''
     }
   }
   config = {
@@ -62,6 +68,21 @@ class Index extends Component {
     this.setState({
       selectorChecked: `${e.detail.value[0]},${e.detail.value[1]},${e.detail.value[2]}`
     })
+    this.props.city && this.props.city.myCity.map(item => {
+      this.setState({
+        provinceId :item.id
+      })
+      item.htLocationVoList.forEach(i=>{
+        this.setState({
+          cityId :i.id
+        })
+        i.htLocationVoList.forEach(it=>{
+          this.setState({
+            areaId :it.id
+          })
+        })
+      })   
+    })
   }
   //标签
   labelBtn(item,index) {
@@ -73,8 +94,26 @@ class Index extends Component {
   }
   //保存
   save() {
-    // console.log(this.props.city.address())
-    console.log(this.state.selectorChecked.slice(',',3))
+    // this.setState({
+    //   provinceName:this.state.selectorChecked.split(',')[0],
+    //   cityName:this.state.selectorChecked.split(',')[1],
+    //   areaName:this.state.selectorChecked.split(',')[2]
+    // })
+    // console.log(this.state.selectorChecked.split(',')[0],'123....')
+    let { consignee , phone , provinceId , cityId , areaId , Text , labels , num , provinceName , cityName ,areaName} = this.state
+    this.props.city.address({
+      provinceId,
+      cityId,
+      areaId,
+      consignee,
+      consigneePhone:phone,
+      address:Text,
+      addressTag:labels,
+      state:num,
+      provinceName:this.state.selectorChecked.split(',')[0],
+      cityName:this.state.selectorChecked.split(',')[1],
+      areaName:this.state.selectorChecked.split(',')[2]
+    })
   }
   onchangeinput(e) {
     this.setState({
@@ -82,20 +121,18 @@ class Index extends Component {
     })
   }
   onchangeinputPhone(e) {
-    console.log(e.target.value)
     this.setState({
       phone:e.target.value
     })
   }
   onchangeinputText(e) {
-    console.log(e.target.value,'e.....')
     this.setState({
       Text:e.target.value
     })
   }
   render () {
     this.props.city && this.props.city.myCity.map(item => {
-        // console.log(item,'id....')
+        // console.log(item.htLocationVoList,'item....')
         this.state.selector.push(item.name)
     })
     return (

@@ -17,26 +17,6 @@ class Index extends Component {
         
     }
   }
-
-  /**
-   * getUserInfo() 获取用户信息
-   */
-  // getUserInfo (e) {
-  //   if (!e.detail.userInfo) {
-  //     Taro.showToast({
-  //       title: '获取用户信息失败，请授权',
-  //       icon: 'none'
-  //     })
-  //     return
-  //   }
-  //   this.setState({
-  //     isShowCanvas: true,
-  //     userInfo: e.detail.userInfo
-  //   }, () => {
-  //     // 调用绘制图片方法
-  //     this.drawImage()
-  //   })
-  // }
   componentWillMount() {
     const info = {
       "pid": 37253,
@@ -192,13 +172,6 @@ class Index extends Component {
     var context = wx.createCanvasContext('share')
 
     // 2.绘制头像和昵称
-    // context.arc(80, 66, 22, 0, Math.PI * 2)
-    // context.closePath()
-    // context.clip()
-    // context.stroke()
-    // context.translate(80, 33)
-    // context.drawImage(userInfo.avtar, -66, -33, 102, 102)
-    // context.restore()
     context.drawImage(userInfo.avtar, 0, 0, 800, 800, 20, 33, 37.5, 37.5);
     context.save();
 
@@ -229,94 +202,6 @@ class Index extends Component {
     context.drawImage(userInfo.Url, 0 , 0 , 800 , 800 , 300 , 510 , 100 , 100)
     context.draw();
   }
-  // /**
-  //  * drawImage() 定义绘制图片的方法
-  //  */
-  // async drawImage () {
-  //   // 创建canvas对象
-  //   let ctx = Taro.createCanvasContext('cardCanvas')
-    
-  //   // 填充背景色
-  //   let grd = ctx.createLinearGradient(0, 0, 1, 600)
-  //   grd.addColorStop(0, '#1452d0')
-  //   grd.addColorStop(0.5, '#FFF')
-  //   ctx.setFillStyle(grd)
-  //   ctx.fillRect(0, 0, 400, 500)
-
-  //   // // 绘制圆形用户头像
-  //   let { userInfo } = this.state
-  //   let res = await Taro.downloadFile({
-  //     url: userInfo.avatarUrl
-  //   })
-  //   ctx.save()
-  //   ctx.beginPath()
-  //   // ctx.arc(160, 86, 66, 0, Math.PI * 2, false)
-  //   ctx.arc(160, 88, 66, 0, Math.PI * 2)
-  //   ctx.closePath()
-  //   ctx.clip()
-  //   ctx.stroke()
-  //   ctx.translate(160, 88)
-  //   ctx.drawImage(res.tempFilePath, -66, -66, 132, 132)
-  //   ctx.restore()
-
-  //   // 绘制文字
-  //   ctx.save()
-  //   ctx.setFontSize(20)
-  //   ctx.setFillStyle('#FFF')
-  //   ctx.fillText(userInfo.nickName, 100, 200)
-  //   ctx.setFontSize(16)
-  //   ctx.setFillStyle('black')
-  //   ctx.fillText('积纳有品小程序', 100, 240)
-  //   ctx.restore()
-
-  //   // 绘制二维码
-  //   let qrcode = await Taro.downloadFile({
-  //     url: 'https://upapi.jinaup.com/static/image/QRCode.png'
-  //   })
-  //   ctx.save();
-  //   ctx.restore();
-  //   ctx.setFontSize(10);
-  //   ctx.fillText('长按识别二维码访问',20,480);
-  //   ctx.drawImage(qrcode.tempFilePath, 70, 260, 180, 180)
-
-  //   // 将以上绘画操作进行渲染
-  //   ctx.draw()
-  // }
-
-  // /**
-  //  * saveCard() 保存图片到本地
-  //  */
-  // async saveCard () {
-  //   // 将Canvas图片内容导出指定大小的图片
-  //   let res = await Taro.canvasToTempFilePath({
-  //     x: 0,
-  //     y: 0,
-  //     width: 400,
-  //     height: 500,
-  //     destWidth: 360,
-  //     destHeight: 450,
-  //     canvasId: 'cardCanvas',
-  //     fileType: 'png'
-  //   })
-  //   let saveRes = await Taro.saveImageToPhotosAlbum({
-  //     filePath: res.tempFilePath
-  //   })
-  //   if (saveRes.errMsg === 'saveImageToPhotosAlbum:ok') {
-  //     Taro.showModal({
-  //       title: '图片保存成功',
-  //       content: '图片成功保存到相册了，快去发朋友圈吧~',
-  //       showCancel: false,
-  //       confirmText: '确认'
-  //     })
-  //   } else {
-  //       Taro.showModal({
-  //       title: '图片保存失败',
-  //       content: '请重新尝试!',
-  //       showCancel: false,
-  //       confirmText: '确认'
-  //     })
-  //   }
-  // }
 
   render () {
     return (
