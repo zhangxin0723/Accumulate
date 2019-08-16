@@ -3,11 +3,13 @@
   height: auto;
   padding-bottom: 120rpx;
   box-sizing: border-box;
+ 
   .test-h {
     width: 100%;
     height: 700rpx;
     background: sandybrown;
     .SwiperItem {
+      color:#f86367;
       width: 100%;
       height: 700rpx;
       background: sandybrown;
@@ -22,6 +24,7 @@
     }
   }
 }
+
 .detailWrapTit {
   width: 100%;
   margin-top: 20rpx;
@@ -94,6 +97,7 @@
   padding: 0 20rpx;
   box-sizing: border-box;
   margin-top: 10rpx;
+  line-height: 100rpx;
   font-size: 32rpx;
   View {
     display: flex;
@@ -234,7 +238,9 @@
   }
 }
 .at-float-layout__container {
-  height: 78%;
+  height: auto;
+  padding-bottom: 100rpx;
+  box-sizing: border-box;
 }
 .active {
   background: rgba(22, 208, 214, 0.651);

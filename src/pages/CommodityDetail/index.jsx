@@ -15,7 +15,11 @@ class CommodityDetail extends Component {
   };
   constructor() {
     this.state = {
-      isOpened: false
+      isOpened: false,
+      color: ["灰色", "灰色", "灰色", "灰色灰色", "灰色", "灰色"],
+      size: ["L(170/92A)", "XL(180/98A)", "L(170/92A)", "L(170/92A)"],
+      ind: 0,
+      ind1: 0
     };
   }
   handleClickBtn() {
@@ -26,9 +30,19 @@ class CommodityDetail extends Component {
     });
   }
   componentWillMount() {
-    console.log(this.props.home.commodityDetails())
+    this.props.home.commodityDetails({ pid: 70219 });
+    this.props.home.getDetailImg({ pid: 70219 });
   }
-
+  colorTab(ind) {
+    this.setState({
+      ind
+    });
+  }
+  sizeTab(ind1) {
+    this.setState({
+      ind1
+    });
+  }
   componentWillReact() {}
 
   componentDidMount() {}
@@ -46,7 +60,8 @@ class CommodityDetail extends Component {
   incrementAsync = () => {};
 
   render() {
-    let { isOpened } = this.state;
+    // console.log(this.props.home.getDetailImg, "666666");
+    let { isOpened, color, ind, size } = this.state;
     return (
       <View className="detailWrap">
         <Swiper
@@ -54,61 +69,69 @@ class CommodityDetail extends Component {
           indicatorColor="#999"
           indicatorActiveColor="#333"
           circular
-          indicatorDots
+          indicatorDots={Number}
           autoplay
         >
-          <SwiperItem className="SwiperItem">
-            <View className="demo-text-1 SwiperBanner">
-              <Image src={namedPng} />
-            </View>
-          </SwiperItem>
-          <SwiperItem className="SwiperItem">
-            <View className="demo-text-2 SwiperBanner">
-              <Image src={namePng1} />
-            </View>
-          </SwiperItem>
-          <SwiperItem className="SwiperItem">
-            <View className="demo-text-3 SwiperBanner">
-              <Image src={namedPng} />
-            </View>
-          </SwiperItem>
+          {this.props.home.detailList.supplierProductPictureVoList &&
+            this.props.home.detailList.supplierProductPictureVoList.map(
+              (item, index) => {
+                return (
+                  <SwiperItem className="SwiperItem" key={index}>
+                    <View className="demo-text-1 SwiperBanner">
+                      <Image src={item.imgUrl} />
+                    </View>
+                  </SwiperItem>
+                );
+              }
+            )}
         </Swiper>
         <View className="detailWrapTit">
           <View className="detailWrapTitLeft">
             <View className="detailWrapTitMoney">
-              <View className="detailWrapTitMoneyOne">￥</View> <View>75</View>
+              <View className="detailWrapTitMoneyOne">￥</View>
+              <View>{this.props.home.detailList.salesPrice}</View>
             </View>
-            <Text>73.02</Text>
+            <Text>{this.props.home.detailList.vipPrice}</Text>
             <Image src={blackCard} />
           </View>
-          <View className="detailWrapTitShare">分享赚1.49</View>
+          <View className="detailWrapTitShare">
+            分享赚{this.props.home.detailList.memberDiscountPrice}
+          </View>
         </View>
         <View className="detailWrapName">
           <View className="detailWrapTop">
-            澳洲直邮Swisse钙+维生素D片150粒*2罐洲直邮Swisse钙+维生素D片150粒*2罐
+            {this.props.home.detailList.title}
           </View>
           <View className="detailWrapBottom">快递包邮</View>
         </View>
         <View className="detailWrapChoice">
-          <View>
-            选择 <View>默认</View>
-          </View>
+          <View>选择 默认</View>
           <Text className="detailWrapChoiceGt">&gt;</Text>
         </View>
         <View className="detailWrapChoice">
           <View>
-            说明 <View className="detailWrapChoicePink">适合幼儿园玩耍</View>
+            说明
+            <View className="detailWrapChoicePink">
+              {this.props.home.detailList.description}
+            </View>
           </View>
         </View>
-        <View className="detailWrapChoice">
+        {/* <View className="detailWrapChoice">
           <View>
             提示
             <View className="detailWrapChoicePink">
               西藏自治区，新疆维吾尔自治区不包邮，运费加20.00元
             </View>
           </View>
+        </View> */}
+        <View className="detailWrapList">
+          <View className="detailWrapListImg"> 
+            {/* {this.props.home.getDetailImg &&
+              this.props.home.getDetailImg.map((item, index) => {
+                return <Image key={index} src={item.imgUrl} />;
+              })} */}
+          </View>
         </View>
-        <View className="detailWrapList">内容</View>
         <View className="detailLower">
           <View className="detailLowerLeft">分享赚</View>
           <View
@@ -131,20 +154,29 @@ class CommodityDetail extends Component {
           <View className="detailWrapMaskColor">
             <View className="detailWrapMaskColors">颜色</View>
             <View className="detailWrapMaskColorSize">
-              <Text className="active">灰色</Text>
-              <Text>灰色灰色</Text> <Text>灰色</Text>
-              <Text>灰色</Text>
-              <Text>灰色</Text>
-              <Text>灰色</Text>
+              {color.map((item, index) => (
+                <Text
+                  key={index}
+                  onClick={() => this.colorTab(index)}
+                  className={ind === index ? "active" : null}
+                >
+                  {item}
+                </Text>
+              ))}
             </View>
           </View>
           <View className="detailWrapMaskColor">
             <View className="detailWrapMaskColors">尺码</View>
             <View className="detailWrapMaskColorSize">
-              <Text className="active">L(170/92A)</Text>
-              <Text>L(170/92A)</Text>
-              <Text>L(170/92A)</Text>
-              <Text>L(170/92A)</Text>
+              {size.map((item, index) => (
+                <Text
+                  key={index}
+                  onClick={() => this.sizeTab(index)}
+                  className={ind1 === index ? "active" : null}
+                >
+                  {item}
+                </Text>
+              ))}
             </View>
           </View>
           <View className="detailWrapNum">

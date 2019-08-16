@@ -6,14 +6,21 @@
  * @LastEditors: Please set LastEditors
  */
 import fly from "../utils/request";
+import { func } from "prop-types";
 
 export function getHome(params) {
   return fly.post("/api/open/page/home/products/1.0.0");
 }
 //商品详情
-export function commodityDetails() {
-  return fly.post("/api/open/product/micro/productInfo/query/details/1.0.0");
+export function commodityDetails(pid) {
+  console.log(pid,'222222')
+  return fly.post("/api/open/product/info/1.0.0",pid);
 }
-export function getList(params){
-  return fly.post('/api/open/product/category/query/1.0.0')
+//图片
+export function getDetailImg(payload) {
+  return fly.post("/api/open/product/detailPicture/1.0.0",payload);
+}
+
+export function getList(params) {
+  return fly.post("/api/open/product/category/query/1.0.0");
 }

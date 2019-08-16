@@ -19,8 +19,9 @@ import "taro-ui/dist/style/components/switch.scss";
 class App extends Component {
   config = {
     pages: [
-      //商品详情
-      "pages/CommodityDetail/index",
+      "pages/Canvas/index",
+        //商品详情
+      "pages/CommodityDetail/index",   
       //提交订单
       "pages/PlaceOrder/index",
       "pages/address/index",
